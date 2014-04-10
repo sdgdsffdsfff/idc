@@ -8,6 +8,65 @@
 $(function() {
     "use strict";
 
+    /* Morris.js Charts */
+
+    // 带宽资源统计表
+    var bar = new Morris.Bar({
+        element: 'bar-chart',
+        resize: true,
+        data: [
+            {y: '10月', a: 1.3, b: 18},
+            {y: '11月', a: 1.5, b: 14},
+            {y: '12月', a: 1.0, b: 10},
+            {y: '01月', a: 1.2, b: 13},
+            {y: '02月', a: 1.6, b: 15},
+            {y: '03月', a: 1.1, b: 11},
+            {y: '04月', a: 1.7, b: 16}
+        ],
+        barColors: ['#00a65a', '#f56954'],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['流入/GB: ', '流出/GB: '],
+        hideHover: 'auto'
+    });
+
+    // 收入报表
+    var area = new Morris.Area({
+        element: 'revenue-chart',
+        resize: true,
+        data: [
+            {y: '2012 Q1', bandwitdh: 2666,  cabinet: 2666, appreciation: 1000},
+            {y: '2012 Q2', bandwitdh: 2778,  cabinet: 2294, appreciation: 1000},
+            {y: '2012 Q3', bandwitdh: 4912,  cabinet: 1969, appreciation: 1000},
+            {y: '2012 Q4', bandwitdh: 3767,  cabinet: 3597, appreciation: 1000},
+            {y: '2013 Q1', bandwitdh: 6810,  cabinet: 1914, appreciation: 1000},
+            {y: '2013 Q2', bandwitdh: 5670,  cabinet: 4293, appreciation: 1000},
+            {y: '2013 Q3', bandwitdh: 4820,  cabinet: 3795, appreciation: 1000},
+            {y: '2013 Q4', bandwitdh: 6073,  cabinet: 3967, appreciation: 1000},
+            {y: '2014 Q1', bandwitdh: 7687,  cabinet: 4460, appreciation: 1000},
+            {y: '2014 Q2', bandwitdh: 8432,  cabinet: 3713, appreciation: 1000}
+        ], 
+        xkey: 'y',
+        ykeys: ['bandwitdh', 'cabinet', 'appreciation'],
+        labels: ['带宽收入', '机柜收入','增值业务'],
+        lineColors: ['#a0d0e0', '#3c8dbc', '#3c8dbc'],
+        hideHover: 'auto'
+    });
+
+    // 客户分布
+    var donut = new Morris.Donut({
+        element: 'sales-chart',
+        resize: true,
+        colors: ["#3c8dbc", "#f56954", "#00a65a", "#00a65a"],
+        data: [
+            {label: "互联网", value: 72},
+            {label: "政府", value: 5},
+            {label: "中小企业", value: 8},
+            {label: "金融", value: 12}
+        ],
+        hideHover: 'auto'
+    });
+
     //Make the dashboard widgets sortable Using jquery UI
     $(".connectedSortable").sortable({
         placeholder: "sort-highlight",
@@ -207,92 +266,13 @@ $(function() {
         height: '250px'
     });
 
-    /* Morris.js Charts */
-    // Sales chart
-    var area = new Morris.Area({
-        element: 'revenue-chart',
-        resize: true,
-        data: [
-            {y: '2011 Q1', item1: 2666, item2: 2666},
-            {y: '2011 Q2', item1: 2778, item2: 2294},
-            {y: '2011 Q3', item1: 4912, item2: 1969},
-            {y: '2011 Q4', item1: 3767, item2: 3597},
-            {y: '2012 Q1', item1: 6810, item2: 1914},
-            {y: '2012 Q2', item1: 5670, item2: 4293},
-            {y: '2012 Q3', item1: 4820, item2: 3795},
-            {y: '2012 Q4', item1: 15073, item2: 5967},
-            {y: '2013 Q1', item1: 10687, item2: 4460},
-            {y: '2013 Q2', item1: 8432, item2: 5713}
-        ],
-        xkey: 'y',
-        ykeys: ['item1', 'item2'],
-        labels: ['Item 1', 'Item 2'],
-        lineColors: ['#a0d0e0', '#3c8dbc'],
-        hideHover: 'auto'
-    });
-    //Donut Chart
-    var donut = new Morris.Donut({
-        element: 'sales-chart',
-        resize: true,
-        colors: ["#3c8dbc", "#f56954", "#00a65a"],
-        data: [
-            {label: "Download Sales", value: 12},
-            {label: "In-Store Sales", value: 30},
-            {label: "Mail-Order Sales", value: 20}
-        ],
-        hideHover: 'auto'
-    });
-    //Bar chart
-    var bar = new Morris.Bar({
-        element: 'bar-chart',
-        resize: true,
-        data: [
-            {y: '10月', a: 23, b: 68},
-            {y: '11月', a: 25, b: 67},
-            {y: '12月', a: 20, b: 60},
-            {y: '01月', a: 22, b: 63},
-            {y: '02月', a: 26, b: 65},
-            {y: '03月', a: 21, b: 61},
-            {y: '04月', a: 27, b: 69}
-        ],
-        barColors: ['#00a65a', '#f56954'],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['流入', '流出'],
-        hideHover: 'auto'
-    });
+    
     //Fix for charts under tabs
     $('.box ul.nav a').on('shown.bs.tab', function(e) {
         area.redraw();
         donut.redraw();
     });
-
-
-    /* BOX REFRESH PLUGIN EXAMPLE (usage with morris charts) */
-    $("#loading-example").boxRefresh({
-        source: "ajax/dashboard-boxrefresh-demo.php",
-        onLoadDone: function(box) {
-            bar = new Morris.Bar({
-                element: 'bar-chart',
-                resize: true,
-                data: [
-                    {y: '10月', a: 23, b: 68},
-                    {y: '11月', a: 25, b: 67},
-                    {y: '12月', a: 20, b: 60},
-                    {y: '01月', a: 22, b: 63},
-                    {y: '02月', a: 26, b: 65},
-                    {y: '03月', a: 21, b: 61},
-                    {y: '04月', a: 27, b: 69}
-                ],
-                barColors: ['#00a65a', '#f56954'],
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['流入', '流出'],
-                hideHover: 'auto'
-            });
-        }
-    });
-
+    
     /* The todo list plugin */
     $(".todo-list").todolist({
         onCheck: function(ele) {

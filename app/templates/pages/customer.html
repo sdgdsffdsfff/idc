@@ -1,0 +1,153 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+{% include 'header.html' with context %}
+{% endblock %}
+
+{% block leftside %}
+{% include 'leftside.html' with context %}
+{% endblock %}
+
+{% block rightside %}
+{% include 'rightside.html' with context %}
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <table class="table table-bordered zh" >
+                        <tr>
+                            <th>#</th>
+                            <th>客户名</th>
+                            <th>机柜租用</th>
+                            <th>带宽租用</th>
+                            <th>增值业务</th>
+                            <th>资费统计</th>
+                            <th>客户分析</th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td><a href="{{ url_for('customer') + '1' }}">蓝汛</a></td>
+                            <td><span class="label label-success">4</span></td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 90%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>无</td>
+                            <td><span class="badge bg-light-blue">12 万</span></td>
+                            <td style="color: #f39c12;">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>班班通</td>
+                            <td><span class="label label-success">1</span></td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 40%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>无</td>
+                            <td><span class="badge bg-light-blue">5 万</span></td>
+                            <td style="color: #f39c12;">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half"></i>
+                                <i class="fa fa-star-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>光大银行</td>
+                            <td><span class="label label-success">2</span></td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 20%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>无</td>
+                            <td><span class="badge bg-light-blue">3.5 万</span></td>
+                            <td style="color: #f39c12;">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>社保局</td>
+                            <td><span class="label label-success">1</span></td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 70%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>无</td>
+                            <td><span class="badge bg-light-blue">8 万</span></td>
+                            <td style="color: #f39c12;">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td>腾讯</td>
+                            <td><span class="label label-success">6</span></td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 30%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>无</td>
+                            <td><span class="badge bg-light-blue">18 万</span></td>
+                            <td style="color: #f39c12;">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </td>
+                        </tr>
+                    </table>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->
+                
+            </div><!-- /.box -->
+
+        </div>
+    </div>
+</section>   
+<!-- /.content -->
+
+{% endblock %}
