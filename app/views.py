@@ -8,7 +8,7 @@ from flask import render_template, send_from_directory
 def index():
     return render_template('index.html',
         web_title=app.config['WEB_TITLE'],
-        content_title=u'机房概况',
+        content_title=u'IDC 概况',
         user_name=u'于旸',
         user_role=u'管理员'
                            )
@@ -39,13 +39,13 @@ def cabinet(cabinet_id=None):
         return render_template('pages/cabinet_detail.html',
             cabinet_name=cabinet_id,
             web_title=app.config['WEB_TITLE'],
-            content_title=u'机柜资源',
+            content_title=u'机房资产',
             user_name=u'于旸',
             user_role=u'管理员')
 
     return render_template('pages/cabinet.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'机柜资源',
+            content_title=u'机房资产',
             user_name=u'于旸',
             user_role=u'管理员')
 
