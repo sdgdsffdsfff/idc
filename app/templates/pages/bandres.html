@@ -18,10 +18,27 @@
 
     <div class="row">
         <div class="col-md-6">
+            <!-- interactive chart -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title zh">实时流量统计</h3>
+                    <div class="box-tools pull-right">
+                        实时&nbsp;
+                        <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                            <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>                                            
+                            <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="interactive" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+            </div><!-- /.box -->
 
             <div class="box box-warning">
                 <div class="box-header">
-                    <i class="fa fa-sitemap"></i>
+                    <i class="fa fa-signal"></i>
                     <h3 class="box-title"><span class="zh">设备流量信息</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
@@ -103,14 +120,110 @@
                         </tr>
 
                     </table>
-                </div><!-- /.box-body -->
-                
+                </div><!-- /.box-body -->    
             </div><!-- /.box -->
 
+        </div>
+
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-info"></i>
+                    <h3 class="box-title"><span class="zh">租用带宽详情</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <table class="table table-bordered zh" >
+                        <tr>
+                            <th>#</th>
+                            <th>租用客户</th>
+                            <th>租用带宽</th>
+                            <th>实际使用量</th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td>蓝汛</td>
+                            <td>10 G</td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 90%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>班班通</td>
+                            <td>1 G</td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-primary" style="width: 40%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>光大银行</td>
+                            <td>1 G</td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 20%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>社保局</td>
+                            <td>1 G</td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 70%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td>腾讯</td>
+                            <td>10 G</td>
+                            <td>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 30%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->
+                
+            </div><!-- /.box -->
         </div>
 
     </div>
 </section>   
 <!-- /.content -->
+
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+<!-- FLOT CHARTS -->
+<script src="{{ url_for('static', filename='web/js/plugins/flot/jquery.flot.min.js') }}" type="text/javascript"></script>
+
+<!-- FLOT CHARTS -->
+<script src="{{ url_for('static', filename='appjs/bandres.js') }}" type="text/javascript"></script>
 
 {% endblock %}
