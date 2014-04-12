@@ -50,6 +50,32 @@ def cabinet(cabinet_id=None):
             user_role=u'管理员')
 
 
+@app.route('/bandres/')
+@app.route('/bandres/<port_id>')
+def bandres(port_id=None):
+    if port_id:
+        return render_template('pages/port.html',
+            port_name=port_id,
+            web_title=app.config['WEB_TITLE'],
+            content_title=u'带宽资源',
+            user_name=u'于旸',
+            user_role=u'管理员')
+
+    return render_template('pages/bandres.html',
+            web_title=app.config['WEB_TITLE'],
+            content_title=u'带宽资源',
+            user_name=u'于旸',
+            user_role=u'管理员')
+
+
+@app.route('/flow/')
+def flow():
+    return render_template('pages/flow.html',
+            web_title=app.config['WEB_TITLE'],
+            content_title=u'流量统计',
+            user_name=u'于旸',
+            user_role=u'管理员')
+
 @app.route('/puewue/<path:filename>')
 def download_file(filename):
     return send_from_directory(app.config['PUEWUE_ROOT'], filename)

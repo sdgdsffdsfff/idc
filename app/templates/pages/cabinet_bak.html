@@ -33,48 +33,40 @@
 
             <div class="box box-info">
                 <div class="box-header">
-                    <i class="fa fa-sitemap"></i>
-                    <h3 class="box-title"><span class="zh">自有设备信息</span></h3>
+                    <i class="fa fa-power-off"></i>
+                    <h3 class="box-title"><span class="zh">机房用电量统计</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered zh" >
                         <tr>
-                            <th>设备编号</th>
-                            <th>设备类型</th>
-                            <th>所属机柜</th>
-                            <th>运行状态</th>
+                            <th>机柜号</th>
+                            <th>所属机房</th>
+                            <th>当前耗电量</th>
+                            <th>月度耗电量</th>
                         </tr>
                         <tr>
-                            <td>NE40E-1</td>
-                            <td>路由器</td>
                             <td>2-0-1</td>
-                            <td><span class="badge bg-green"><strong>正常</strong></span></td>
-
+                            <td>2号机房</td>
+                            <td><span class="badge bg-blue"><strong>1.2</strong></span></td>
+                            <td><span class="badge bg-red"><strong>42</strong></span></td>
                         </tr>
                         <tr>
-                            <td>NE40E-2</td>
-                            <td>路由器</td>
                             <td>2-0-2</td>
-                            <td><span class="badge bg-green"><strong>正常</strong></span></td>
+                            <td>2号机房</td>
+                            <td><span class="badge bg-blue"><strong>0.8</strong></span></td>
+                            <td><span class="badge bg-red"><strong>26</strong></span></td>
                         </tr>
                         <tr>
-                            <td>S9312-1</td>
-                            <td>交换机</td>
                             <td>2-0-3</td>
-                            <td><span class="badge bg-yellow"><strong>CPU 负载较高</strong></span></td>
-                        </tr>
-                        <tr>
-                            <td>S9312-2</td>
-                            <td>交换机</td>
-                            <td>2-0-4</td>
-                            <td><span class="badge bg-green"><strong>正常</strong></span></td>
+                            <td>2号机房</td>
+                            <td><span class="badge bg-blue"><strong>1.6</strong></span></td>
+                            <td><span class="badge bg-red"><strong>57</strong></span></td>
                         </tr>
 
                     </table>
                 </div><!-- /.box-body -->
                 
             </div><!-- /.box -->
-
         </div><!-- /.col -->
 
         <div class="col-md-7">
@@ -120,86 +112,98 @@
                 
             </div><!-- /.box -->
 
-            
-
-            <div class="box box-primary">
+            <div class="box box-warning">
                 <div class="box-header">
-                    <i class="fa fa-users"></i>
-                    <h3 class="box-title"><span class="zh">客户资产列表</span></h3>
+                    <i class="fa fa-sitemap"></i>
+                    <h3 class="box-title"><span class="zh">网络设备统计</span></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered zh" >
                         <tr>
-                            <th>#</th>
-                            <th>客户名</th>
-                            <th>租用机柜</th>
-                            <th>上架设备</th>
-                            <th>空间使用情况</th>
+                            <th>设备编号</th>
+                            <th>设备类型</th>
+                            <th>所属机柜</th>
+                            <th>连接端口</th>
+                            <th>上行流量</th>
+                            <th>下行流量</th>
+                        </tr>
+                        <tr>
+                            <td>NE40E-1</td>
+                            <td>路由器</td>
+                            <td>2-0-1</td>
+                            <td>30 / 100</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 36%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 76%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>NE40E-2</td>
+                            <td>路由器</td>
+                            <td>2-0-2</td>
+                            <td>46 / 100</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 16%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 46%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>S9312-1</td>
+                            <td>交换机</td>
+                            <td>2-0-3</td>
+                            <td>18 / 60</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 26%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-red" style="width: 96%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>S9312-2</td>
+                            <td>交换机</td>
+                            <td>2-0-4</td>
+                            <td>28 / 70</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 36%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 60%;"></div>
+                                </div>
+                                
+                            </td>
                         </tr>
 
-                        <tr>
-                            <td>1.</td>
-                            <td>蓝汛</td>
-                            <td>4</td>
-                            <td>31</strong></span></td>
-                            <td>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 90%;"></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>班班通</td>
-                            <td>1</td>
-                            <td>4</td>
-                            <td>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 20%;"></div>
-                                </div>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>光大银行</td>
-                            <td>2</td>
-                            <td>12</td>
-                            <td>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-yellow" style="width: 70%;"></div>
-                                </div>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>社保局</td>
-                            <td>1</td>
-                            <td>3</td>
-                            <td>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 20%;"></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5.</td>
-                            <td>腾讯</td>
-                            <td>6</td>
-                            <td>50</td>
-                            <td>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-red" style="width: 92%;"></div>
-                                </div>
-                                
-                            </td>
-                        </tr>
                     </table>
                 </div><!-- /.box-body -->
                 
             </div><!-- /.box -->
-
 
         </div>
 

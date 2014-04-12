@@ -1,0 +1,116 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+{% include 'header.html' with context %}
+{% endblock %}
+
+{% block leftside %}
+{% include 'leftside.html' with context %}
+{% endblock %}
+
+{% block rightside %}
+{% include 'rightside.html' with context %}
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="box box-warning">
+                <div class="box-header">
+                    <i class="fa fa-sitemap"></i>
+                    <h3 class="box-title"><span class="zh">设备流量信息</span></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered zh" >
+                        <tr>
+                            <th>设备编号</th>
+                            <th>设备类型</th>
+                            <th>连接端口</th>
+                            <th>上行流量</th>
+                            <th>下行流量</th>
+                        </tr>
+                        <tr>
+                            <td>NE40E-1</td>
+                            <td>路由器</td>
+                            <td>30 / 100</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 36%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 76%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>NE40E-2</td>
+                            <td>路由器</td>
+                            <td>46 / 100</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 16%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 46%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>S9312-1</td>
+                            <td>交换机</td>
+                            <td>18 / 60</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 26%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-red" style="width: 96%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>S9312-2</td>
+                            <td>交换机</td>
+                            <td>28 / 70</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 36%;"></div>
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 60%;"></div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+
+                    </table>
+                </div><!-- /.box-body -->
+                
+            </div><!-- /.box -->
+
+        </div>
+
+    </div>
+</section>   
+<!-- /.content -->
+
+{% endblock %}
