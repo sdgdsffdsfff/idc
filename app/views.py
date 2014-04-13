@@ -95,6 +95,24 @@ def flow():
             user_role=u'管理员')
 
 
+@app.route('/analyze/')
+def analyze():
+    return render_template('pages/analyze.html',
+            web_title=app.config['WEB_TITLE'],
+            content_title=u'深度分析',
+            user_name=u'于旸',
+            user_role=u'管理员')
+
+
+@app.route('/business/')
+def business():
+    return render_template('pages/business.html',
+            web_title=app.config['WEB_TITLE'],
+            content_title=u'收入分析',
+            user_name=u'于旸',
+            user_role=u'管理员')
+
+
 @app.route('/puewue/<path:filename>')
 def download_file(filename):
     return send_from_directory(app.config['PUEWUE_ROOT'], filename)
