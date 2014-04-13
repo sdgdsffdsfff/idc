@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+{% include 'header.html' with context %}
+{% endblock %}
+
+{% block leftside %}
+{% include 'leftside.html' with context %}
+{% endblock %}
+
+{% block rightside %}
+{% include 'rightside.html' with context %}
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-power-off"></i>
+                    <h3 class="box-title"><span class="zh">机房用电量统计</span></h3>
+                    <ul class="nav nav-tabs">
+                        <li class="dropdown pull-right zh">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                二号机房<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation" class="dropdown-header">选择机房</li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a role="menuitem" href="#">一号机房</a></li>
+                                <li role="presentation"><a role="menuitem" href="#">三号机房</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered zh" >
+                        <tr>
+                            <th>机柜号</th>
+                            <th>所属客户</th>
+                            <th>当前耗电量</th>
+                            <th>月度耗电量</th>
+                        </tr>
+                        <tr>
+                            <td>2-0-1</td>
+                            <td>联通自有</td>
+                            <td><span class="badge bg-blue"><strong>1.2</strong></span></td>
+                            <td><span class="badge bg-red"><strong>42</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-2</td>
+                            <td>联通自有</td>
+                            <td><span class="badge bg-blue"><strong>0.8</strong></span></td>
+                            <td><span class="badge bg-red"><strong>26</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-3</td>
+                            <td>联通自有</td>
+                            <td><span class="badge bg-blue"><strong>1.6</strong></span></td>
+                            <td><span class="badge bg-red"><strong>57</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-4</td>
+                            <td>蓝汛</td>
+                            <td><span class="badge bg-blue"><strong>2.2</strong></span></td>
+                            <td><span class="badge bg-red"><strong>59</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-5</td>
+                            <td>班班通</td>
+                            <td><span class="badge bg-blue"><strong>1.1</strong></span></td>
+                            <td><span class="badge bg-red"><strong>35</strong></span></td>
+                        </tr>
+
+                    </table>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->
+                
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+
+    </div>
+</section>   
+<!-- /.content -->
+
+{% endblock %}

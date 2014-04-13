@@ -1,92 +1,64 @@
 $(function() {
+    
+    "use strict";
 
-    /*
-     * Flot Interactive Chart
-     * -----------------------
-     */
-     
-    var data = [], totalPoints = 100;
-    function getRandomData() {
+    // 资源剩余信息
 
-        if (data.length > 0)
-            data = data.slice(1);
-
-        // Do a random walk
-        while (data.length < totalPoints) {
-
-            var prev = data.length > 0 ? data[data.length - 1] : 50,
-                    y = prev + Math.random() * 10 - 5;
-
-            if (y < 0) {
-                y = 0;
-            } else if (y > 100) {
-                y = 100;
-            }
-
-            data.push(y);
-        }
-
-        // Zip the generated y values with the x values
-        var res = [];
-        for (var i = 0; i < data.length; ++i) {
-            res.push([i, data[i]/3]);
-        }
-
-        return res;
-    }
-
-    var interactive_plot = $.plot("#interactive", [getRandomData()], {
-        grid: {
-            borderColor: "#f3f3f3",
-            borderWidth: 1,
-            tickColor: "#f3f3f3"
-        },
-        series: {
-            shadowSize: 0, // Drawing is faster without shadows
-            color: "#3c8dbc"
-        },
-        lines: {
-            fill: false, //Converts the line chart to area chart
-            color: "#3c8dbc"
-        },
-        yaxis: {
-            min: 0,
-            max: 40,
-            show: true
-        },
-        xaxis: {
-            show: false
-        }
+    // 剩余带宽
+    var donut = new Morris.Donut({
+        element: 'band-chart',
+        resize: true,
+        colors: ["#00c0ef", "#932ab6","#00a65a", "#f39c12", "#f56954"],
+        data: [
+            {label: "剩余带宽", value: 21.4},
+            {label: "互联网", value: 12.3},
+            {label: "政府", value: 0.8},
+            {label: "中小企业", value: 1.2},
+            {label: "金融", value: 1.3}
+        ],
+        hideHover: 'auto',
+        formatter: function (x) { return x + " GB"}
     });
 
-    var updateInterval = 500; //Fetch data ever x milliseconds
-    var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
-    function update() {
-
-        interactive_plot.setData([getRandomData()]);
-
-        // Since the axes don't change, we don't need to call plot.setupGrid()
-        interactive_plot.draw();
-        if (realtime === "on")
-            setTimeout(update, updateInterval);
-    }
-
-    //INITIALIZE REALTIME DATA FETCHING
-    if (realtime === "on") {
-        update();
-    }
-    //REALTIME TOGGLE
-    $("#realtime .btn").click(function() {
-        if ($(this).data("toggle") === "on") {
-            realtime = "on";
-        }
-        else {
-            realtime = "off";
-        }
-        update();
+    // 剩余IP
+    var donut = new Morris.Donut({
+        element: 'ip-chart',
+        resize: true,
+        colors: ["#00c0ef", "#932ab6","#00a65a", "#f39c12", "#f56954"],
+        data: [
+            {label: "剩余IP", value: 896},
+            {label: "互联网", value: 1024},
+            {label: "政府", value: 12},
+            {label: "中小企业", value: 20},
+            {label: "金融", value: 50}
+        ],
+        hideHover: 'auto',
+        formatter: function (x) { return x + "个"}
     });
-    /*
-     * END INTERACTIVE CHART
-     */
+
+    // 带宽资源统计表
+    var bar = new Morris.Bar({
+        element: 'bar-chart',
+        resize: true,
+        data: [
+            {y: '10月', a: 1.3, b: 18},
+            {y: '11月', a: 1.5, b: 14},
+            {y: '12月', a: 1.0, b: 10},
+            {y: '01月', a: 1.2, b: 13},
+            {y: '02月', a: 1.6, b: 15},
+            {y: '03月', a: 1.1, b: 11},
+            {y: '04月', a: 1.7, b: 16}
+        ],
+        barColors: ['#00a65a', '#f56954'],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['下行流量', '上行流量'],
+        hideHover: 'auto',
+        yLabelFormat: function (x) { return x + " GB"}
+    });
+
+    // 流量业务分部
+    $(".knob").knob();
+    
 
 });
