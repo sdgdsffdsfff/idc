@@ -7,9 +7,7 @@
 
 $(function() {
     "use strict";
-
-    /* Morris.js Charts */
-
+    
     // 带宽资源统计表
     var bar = new Morris.Bar({
         element: 'bar-chart',
@@ -56,19 +54,33 @@ $(function() {
 
     });
 
-    // 客户分布
-    var donut = new Morris.Donut({
-        element: 'sales-chart',
+    // 收入分布
+    var revenue = new Morris.Donut({
+        element: 'sale-chart',
         resize: true,
         colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
         data: [
-            {label: "互联网", value: 72},
-            {label: "政府", value: 5},
-            {label: "中小企业", value: 8},
-            {label: "金融", value: 12}
+            {label: "机柜租用", value: 32.3},
+            {label: "带宽租用", value: 75.2},
+            {label: "增值业务", value: 1.9},
         ],
         hideHover: 'auto',
-        formatter: function (x) { return x + "%"}
+        formatter: function (x) { return x + " 万"}
+    });
+
+    // 客户分布
+    var donut = new Morris.Donut({
+        element: 'customer-chart',
+        resize: true,
+        colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
+        data: [
+            {label: "互联网", value: 72.3},
+            {label: "政府", value: 5.2},
+            {label: "中小企业", value: 8.9},
+            {label: "金融", value: 12.6}
+        ],
+        hideHover: 'auto',
+        formatter: function (x) { return x + " 万"}
     });
 
     // 流量业务分部

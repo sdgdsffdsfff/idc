@@ -16,10 +16,11 @@
 <!-- Main content -->
 <section class="content">
 
-    <!-- Small boxes (Stat box) -->
+    <!-- 统计信息 -->
     <div class="row">
+
         <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
+            <!-- 签约客户 -->
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>
@@ -32,14 +33,15 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="{{ url_for('customer') }}" class="small-box-footer">
                     <span class="zh">详情</span> 
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div><!-- ./col -->
+
         <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
+            <!-- 机柜利用率 -->
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>
@@ -52,14 +54,15 @@
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="{{ url_for('cabinet') }}" class="small-box-footer">
                     <span class="zh">详情</span> 
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div><!-- ./col -->
+
         <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
+            <!-- 带宽利用率 -->
             <div class="small-box bg-yellow">
                 <div class="inner">
                     <h3>
@@ -72,14 +75,15 @@
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="{{ url_for('bandres') }}" class="small-box-footer">
                     <span class="zh">详情</span> 
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div><!-- ./col -->
+
         <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
+            <!-- 当月收入 -->
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
@@ -92,36 +96,94 @@
                 <div class="icon">
                     <i class="ion ion-ios7-cart-outline"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="{{ url_for('business') }}" class="small-box-footer">
                     <span class="zh">详情</span> 
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div><!-- ./col -->
-    </div><!-- /.row -->
+
+    </div><!-- / 统计信息 -->
 
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
-        <section class="col-md-6 connectedSortable"> 
-            <!-- Box (with bar chart) -->
-            <div class="box box-info" id="loading-example">
+        <div class="col-md-6 connectedSortable">
+
+            <!-- 收入统计 -->
+            <div class="box box-solid">
+                <!-- Custom tabs -->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a href="#revenue-chart" data-toggle="tab">
+                            <span class="zh">月度报表</span></a>
+                        </li>
+                        <li><a href="#sale-chart" data-toggle="tab">
+                            <span class="zh">收入分布</span></a>
+                        </li>
+                        <li><a href="#customer-chart" data-toggle="tab">
+                            <span class="zh">客户分布</span></a>
+                        </li>
+                        <li class="pull-left header"><i class="fa fa-signal"></i>
+                            <span class="zh">收入统计</span>
+                        </li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- 月度报表 -->
+                        <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
+
+                        <!-- 收入分布 -->
+                        <div class="chart tab-pane" id="sale-chart" style="position: relative; height: 300px;"></div>
+
+                        <!-- 客户分布 -->
+                        <div class="chart tab-pane" id="customer-chart" style="position: relative; height: 300px;"></div>
+                    </div>
+                </div><!-- /.nav-tabs-custom -->
+            </div><!-- / 收入统计 -->
+
+            <!-- 3D 机房资源管理 -->
+            <div class="box box-solid">
+
+                <div class="box-header">
+                    <i class="fa fa-camera-retro"></i>
+                    <h3 class="box-title"><span class="zh">3D 机房资源管理</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <a href="http://110.249.213.20:8080/uinv_demo/" target="_blank">
+                        <img src="{{ url_for('static', filename='cdn/pic/3d.png') }}" class="img-responsive" alt="3d">
+                    </a>
+                </div><!-- /.box-body -->
+            </div><!-- / 3D 机房资源管理 -->
+
+        </div><!-- /.Left col -->
+
+        <!-- Right col -->
+        <div class="col-md-6 connectedSortable">
+
+            <!-- 流量统计 -->
+            <div class="box box-info">
+
                 <!-- box-header -->
                 <div class="box-header">
                     <!-- tools box -->
                     <i class="fa fa-bar-chart-o"></i>
-                    <h3 class="box-title"><span class="zh">机房月度流量</span></h3>
+                    <h3 class="box-title"><span class="zh">流量统计</span></h3>
                 </div><!-- /.box-header -->
                 
                 <!-- box-body -->
                 <div class="box-body no-padding">
                     <div class="row">
+
                         <div class="col-sm-7">
                             <!-- bar chart -->
                             <div class="chart" id="bar-chart" style="height: 250px;"></div>
                         </div>
+
                         <div class="col-sm-5">
                             <div class="pad">
+
                                 <!-- Progress bars -->
                                 <div class="clearfix">
                                     <span class="pull-left zh">带宽总量</span>
@@ -148,16 +210,18 @@
                                 </div>
 
                                 <!-- Buttons -->
-                                <p>
-                                    <button class="btn btn-primary btn-sm pull-right">
+                                <div>
+                                    <a href="{{ url_for('analyze') }}" class="btn btn-primary pull-right">
                                         <span class="zh">详情&nbsp;&nbsp;</span>
                                         <i class="fa fa-arrow-circle-right"></i>
-                                    </button>
-                                </p>
+                                    </a>
+                                </div>
+
                             </div><!-- /.pad -->
                         </div><!-- /.col -->
                     </div><!-- /.row - inside box -->
                 </div><!-- /.box-body -->
+
                 <div class="box-footer">
                     <div class="row">
                         <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
@@ -166,61 +230,24 @@
                                 <span class="zh">P2P 业务</span>
                             </div>
                         </div><!-- ./col -->
+
                         <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                             <input type="text" class="knob" data-readonly="true" value="18" data-width="60" data-height="60" data-fgColor="#00a65a"/>
                             <div class="knob-label">
                                 <span class="zh">上网 业务</span>
                             </div>
                         </div><!-- ./col -->
+
                         <div class="col-xs-4 text-center">
                             <input type="text" class="knob" data-readonly="true" value="7" data-width="60" data-height="60" data-fgColor="#3c8dbc"/>
                             <div class="knob-label">其他 业务</div>
                         </div><!-- ./col -->
+
                     </div><!-- /.row -->
                 </div><!-- /.box-footer -->
-            </div><!-- /.box -->
+            </div><!-- / 机房月度流量 -->
 
-            <div class="box box-solid">
-                <div class="box-header">
-                    <i class="fa fa-camera-retro"></i>
-                    <h3 class="box-title"><span class="zh">3D 机房资源管理</span></h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <a href="http://110.249.213.20:8080/uinv_demo/" target="_blank">
-                        <img src="{{ url_for('static', filename='cdn/pic/3d.png') }}" class="img-responsive" alt="3d">
-                    </a>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-
-        </section><!-- /.Left col -->
-
-        <!-- Right col -->
-        <section class="col-md-6 connectedSortable"> 
-
-            <div class="box box-solid">
-                <!-- Custom tabs (Charts with tabs)-->
-                <div class="nav-tabs-custom">
-                    <!-- Tabs within a box -->
-                    <ul class="nav nav-tabs pull-right">
-                        <li class="active"><a href="#revenue-chart" data-toggle="tab">
-                            <span class="zh">收入报表</span></a>
-                        </a></li>
-                        <li><a href="#sales-chart" data-toggle="tab">
-                            <span class="zh">客户分布</span></a>
-                        </li>
-                        <li class="pull-left header"><i class="fa fa-signal"></i>
-                            <span class="zh">收入统计</span>
-                        </li>
-                    </ul>
-                    <div class="tab-content no-padding">
-                        <!-- Morris chart - Sales -->
-                        <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-                        <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                    </div>
-                </div><!-- /.nav-tabs-custom -->
-            </div>
-        
-        </section><!-- /.Right col -->
+        </div><!-- /.Right col -->
 
     </div>
     
