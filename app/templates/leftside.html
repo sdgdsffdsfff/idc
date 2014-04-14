@@ -70,20 +70,12 @@
 
             </li>
 
-            <li class="treeview">
-
-                <a href="#">
-                    <i class="fa fa-jpy"></i>
-                    <span class="zh">运营管理</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+            <li>
+                <a href="{{ url_for('business') }}">
+                    <i class="fa fa-jpy"></i> <span class="zh">运营分析</span>
                 </a>
-
-                <ul class="treeview-menu">
-                    <li><a href="{{ url_for('business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">收入分析</span></a></li>
-                    <li><a href="{{ url_for('power') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">支出分析</span></a></li>
-                </ul>
-
             </li>
+
         </ul>
 
     </section>

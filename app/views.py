@@ -108,7 +108,7 @@ def analyze():
 def business():
     return render_template('pages/business.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'收入分析',
+            content_title=u'运营分析',
             user_name=u'于旸',
             user_role=u'管理员')
 

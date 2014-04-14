@@ -19,32 +19,110 @@
     <!-- Main row -->
     <div class="row">
 
-        <!-- Right col -->
-        <section class="col-md-6"> 
+        <!-- Left col -->
+        <div class="col-md-6"> 
 
+            <!-- 收入统计 -->
             <div class="box box-solid">
-                <!-- 收入季度统计 -->
+                <!-- Custom tabs -->
                 <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
                     <ul class="nav nav-tabs pull-right">
                         <li class="active"><a href="#revenue-chart" data-toggle="tab">
-                            <span class="zh">收入报表</span></a>
-                        </a></li>
-                        <li><a href="#sales-chart" data-toggle="tab">
+                            <span class="zh">月度报表</span></a>
+                        </li>
+                        <li><a href="#sale-chart" data-toggle="tab">
+                            <span class="zh">收入分布</span></a>
+                        </li>
+                        <li><a href="#customer-chart" data-toggle="tab">
                             <span class="zh">客户分布</span></a>
                         </li>
-                        <li class="pull-left header"><i class="fa fa-jpy"></i>
-                            <span class="zh">收入季度统计</span>
+                        <li class="pull-left header"><i class="fa fa-signal"></i>
+                            <span class="zh">收入统计</span>
                         </li>
                     </ul>
                     <div class="tab-content no-padding">
-                        <!-- Morris chart - Sales -->
+                        <!-- 月度报表 -->
                         <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-                        <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+
+                        <!-- 收入分布 -->
+                        <div class="chart tab-pane" id="sale-chart" style="position: relative; height: 300px;"></div>
+
+                        <!-- 客户分布 -->
+                        <div class="chart tab-pane" id="customer-chart" style="position: relative; height: 300px;"></div>
                     </div>
                 </div><!-- /.nav-tabs-custom -->
             </div><!-- / 收入统计 -->
         
-        </section><!-- /.Right col -->
+        </div><!-- /.Left col -->
+
+        <!-- Right col -->
+        <div class="col-md-6">
+
+            <!-- 用电分析 -->
+            <div class="box box-danger">
+
+                <div class="box-header">
+                    <i class="fa fa-bolt"></i>
+                <h3 class="box-title zh">用电分析</h3>
+                </div>
+
+                <div class="box-body table-responsive no-padding">
+
+                    <table class="table table-hover table-vcenter zh" >
+                        <tr>
+                            <th>机柜号</th>
+                            <th>所属客户</th>
+                            <th>耗电统计</th>
+                            <th>月度耗电量</th>
+                        </tr>
+                        <tr>
+                            <td>2-0-1</td>
+                            <td>联通自有</td>
+                            <td><div id="sparkline-1"></div></td>
+                            <td><span class="badge bg-red"><strong>42</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-2</td>
+                            <td>联通自有</td>
+                            <td><div id="sparkline-2"></div></td>
+                            <td><span class="badge bg-red"><strong>26</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-3</td>
+                            <td>联通自有</td>
+                            <td><div id="sparkline-3"></div></td>
+                            <td><span class="badge bg-red"><strong>57</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-4</td>
+                            <td>蓝汛</td>
+                            <td><div id="sparkline-4"></div></td>
+                            <td><span class="badge bg-red"><strong>59</strong></span></td>
+                        </tr>
+                        <tr>
+                            <td>2-0-5</td>
+                            <td>班班通</td>
+                            <td><div id="sparkline-5"></div></td>
+                            <td><span class="badge bg-red"><strong>35</strong></span></td>
+                        </tr>
+
+                    </table>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->
+    
+            </div><!-- / 用电分析 -->
+        
+        </div><!-- /.Right col -->
 
     </div>
     
@@ -54,6 +132,9 @@
 
 {% block js %}
 {{ super() }}
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- Sparkline -->
+<script src="{{ url_for('static', filename='web/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+
+<!-- business data -->
 <script src="{{ url_for('static', filename='appjs/business.js') }}" type="text/javascript"></script>
 {% endblock %}
