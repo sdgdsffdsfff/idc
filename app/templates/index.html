@@ -162,62 +162,25 @@
         <!-- Right col -->
         <div class="col-md-6 connectedSortable">
 
-            <!-- 流量统计 -->
-            <div class="box box-info">
-
+            <!-- 机房月度统计 -->
+            <div class="box box-info" id="loading-example">
                 <!-- box-header -->
                 <div class="box-header">
                     <!-- tools box -->
                     <i class="fa fa-bar-chart-o"></i>
-                    <h3 class="box-title"><span class="zh">流量统计</span></h3>
+                    <h3 class="box-title"><span class="zh">机房月度统计</span></h3>
                 </div><!-- /.box-header -->
                 
                 <!-- box-body -->
                 <div class="box-body no-padding">
                     <div class="row">
-
-                        <div class="col-sm-7">
+                        <div class="col-sm-8">
                             <!-- bar chart -->
                             <div class="chart" id="bar-chart" style="height: 250px;"></div>
                         </div>
-
-                        <div class="col-sm-5">
-                            <div class="pad">
-
-                                <!-- Progress bars -->
-                                <div class="clearfix">
-                                    <span class="pull-left zh">带宽总量</span>
-                                    <small class="pull-right">14.5/40 GB</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-light-blue" style="width: 40%;"></div>
-                                </div>
-
-                                <div class="clearfix">
-                                    <span class="pull-left zh">下行流量</span>
-                                    <small class="pull-right">1.2 GB</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 5%;"></div>
-                                </div>
-
-                                <div class="clearfix">
-                                    <span class="pull-left">上行流量</span>
-                                    <small class="pull-right">14.5 GB</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-red" style="width: 35%;"></div>
-                                </div>
-
-                                <!-- Buttons -->
-                                <div>
-                                    <a href="{{ url_for('analyze') }}" class="btn btn-primary pull-right">
-                                        <span class="zh">详情&nbsp;&nbsp;</span>
-                                        <i class="fa fa-arrow-circle-right"></i>
-                                    </a>
-                                </div>
-
-                            </div><!-- /.pad -->
+                        <div class="col-sm-4">
+                            <!-- <span class="pull-left zh">业务分布</span> -->
+                            <div class="chart active" id="business-chart" style="height: 220px;"></div>
                         </div><!-- /.col -->
                     </div><!-- /.row - inside box -->
                 </div><!-- /.box-body -->
@@ -227,25 +190,23 @@
                         <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                             <input type="text" class="knob" data-readonly="true" value="60" data-width="60" data-height="60" data-fgColor="#f56954"/>
                             <div class="knob-label">
-                                <span class="zh">P2P 业务</span>
+                                <span class="zh">蓝讯</span>
                             </div>
                         </div><!-- ./col -->
-
                         <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
                             <input type="text" class="knob" data-readonly="true" value="18" data-width="60" data-height="60" data-fgColor="#00a65a"/>
                             <div class="knob-label">
-                                <span class="zh">上网 业务</span>
+                                <span class="zh">腾讯</span>
                             </div>
                         </div><!-- ./col -->
-
                         <div class="col-xs-4 text-center">
                             <input type="text" class="knob" data-readonly="true" value="7" data-width="60" data-height="60" data-fgColor="#3c8dbc"/>
-                            <div class="knob-label">其他 业务</div>
+                            <div class="knob-label">社保局</div>
                         </div><!-- ./col -->
-
                     </div><!-- /.row -->
+
                 </div><!-- /.box-footer -->
-            </div><!-- / 机房月度流量 -->
+            </div><!-- / 机房月度统计 -->
 
         </div><!-- /.Right col -->
 

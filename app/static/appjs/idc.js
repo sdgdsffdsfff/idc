@@ -9,7 +9,7 @@ $(function() {
     "use strict";
     
     // 带宽资源统计表
-    var bar = new Morris.Bar({
+    var bar_chart = new Morris.Bar({
         element: 'bar-chart',
         resize: true,
         data: [
@@ -30,7 +30,7 @@ $(function() {
     });
 
     // 收入报表
-    var area = new Morris.Area({
+    var revenue_chart = new Morris.Area({
         element: 'revenue-chart',
         resize: true,
         data: [
@@ -55,7 +55,7 @@ $(function() {
     });
 
     // 收入分布
-    var revenue = new Morris.Donut({
+    var sale_chart = new Morris.Donut({
         element: 'sale-chart',
         resize: true,
         colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
@@ -69,7 +69,7 @@ $(function() {
     });
 
     // 客户分布
-    var donut = new Morris.Donut({
+    var customer_chart = new Morris.Donut({
         element: 'customer-chart',
         resize: true,
         colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
@@ -81,6 +81,22 @@ $(function() {
         ],
         hideHover: 'auto',
         formatter: function (x) { return x + " 万"}
+    });
+
+    // business chart
+    var business_chart = new Morris.Donut({
+        element: 'business-chart',
+        resize: true,
+        colors: ["#00c0ef", "#932ab6","#00a65a", "#f39c12", "#f56954"],
+        data: [
+            {label: "P2P", value: 65},
+            {label: "上网", value: 8},
+            {label: "多玩YY", value: 12},
+            {label: "网银", value: 6},
+            {label: "其他", value: 4}
+        ],
+        hideHover: 'auto',
+        formatter: function (x) { return x + " %"}
     });
 
     // 流量业务分部

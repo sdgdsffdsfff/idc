@@ -57,13 +57,13 @@ def bandres(port_id=None):
         return render_template('pages/port.html',
             port_name=port_id,
             web_title=app.config['WEB_TITLE'],
-            content_title=u'互联网资源',
+            content_title=u'带宽资源',
             user_name=u'于旸',
             user_role=u'管理员')
 
     return render_template('pages/bandres.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'互联网资源',
+            content_title=u'带宽资源',
             user_name=u'于旸',
             user_role=u'管理员')
 
