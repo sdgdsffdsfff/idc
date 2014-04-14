@@ -98,62 +98,49 @@ $(function() {
     // 实时流量信息
     var myvalues = [], myPoints = 24;
 
-    function getRandomValue() {
+    function getRandomValue(range) {
 
         myvalues = [];
 
-        if (myvalues.length > 0)
-            myvalues = myvalues.slice(1);
-
-        // Do a random walk
         while (myvalues.length < myPoints) {
-
-            var prev = myvalues.length > 0 ? myvalues[myvalues.length - 1] : 50,
-                    y = prev + Math.random() * 10 - 5;
-
-            if (y < 0) {
-                y = 0;
-            } else if (y > 100) {
-                y = 100;
-            }
-
-            y = Math.round(y);
-
-            myvalues.push(y);
+            var temp = Math.random() * random_range[range];
+            myvalues.push(temp.toFixed(2));
         }
 
         return myvalues;
     }
 
-    var res_value = [];
+    var res_value_up = [];
+    var res_value_down = [];
     var sparkline_id_up;
     var sparkline_id_down;
+
+    var random_range = [0,20,20,2,2,10,10,5,5,10,10,10,10,1,1,1,1,1,1,1,1];
     
     for (var i = 1; i <= 20; i++ ) {
         sparkline_id_up = '#sparkline-' + i;
         // console.log(sparkline_id_up);
+        res_value_up = getRandomValue(i);
 
         var j = ++i;
         sparkline_id_down = '#sparkline-' + j;
         // console.log(sparkline_id_down);
+        res_value_down = getRandomValue(j);
 
-        res_value = getRandomValue();
-
-        $(sparkline_id_up).sparkline(res_value, {
+        $(sparkline_id_up).sparkline(res_value_up, {
             type: 'bar',
             tooltipFormat: '{{offset}} 点: {{value}} GB',
             barColor: '#00a65a',
             negBarColor: "#f56954",
-            height: '25px'
+            height: '30px'
         });
 
-        res_value = getRandomValue();
-        $(sparkline_id_down).sparkline(res_value, {
+        $(sparkline_id_down).sparkline(res_value_down, {
             type: 'bar',
             tooltipFormat: '{{offset}} 点: {{value}} GB',
             barColor: '#f56954',
             negBarColor: "#00a65a",
-            height: '25px'
+            height: '30px'
         });
 
     };
