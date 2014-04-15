@@ -137,25 +137,59 @@
         </div>
         
         <div class="col-md-6">
-            <!-- 机房月度统计 -->
-            <div class="box box-info" id="loading-example">
+
+            <!-- 流量统计 -->
+            <div class="box box-info zh">
+
                 <!-- box-header -->
                 <div class="box-header">
                     <!-- tools box -->
                     <i class="fa fa-bar-chart-o"></i>
-                    <h3 class="box-title"><span class="zh">机房月度统计</span></h3>
+                    <h3 class="box-title"><span class="zh">流量月度统计</span></h3>
                 </div><!-- /.box-header -->
                 
                 <!-- box-body -->
                 <div class="box-body no-padding">
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-7">
                             <!-- bar chart -->
                             <div class="chart" id="bar-chart" style="height: 250px;"></div>
                         </div>
-                        <div class="col-sm-4">
-                            <!-- <span class="pull-left zh">业务分布</span> -->
-                            <div class="chart active" id="business-chart" style="height: 220px;"></div>
+                        <div class="col-sm-5">
+                            <div class="pad">
+                                <!-- Progress bars -->
+                                <div class="clearfix">
+                                    <span class="pull-left">P2P 业务</span>
+                                    <small class="pull-right">65%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 65%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">上网</span>
+                                    <small class="pull-right">12%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-red" style="width: 12%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">Web服务</span>
+                                    <small class="pull-right">10%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 10%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">其他</span>
+                                    <small class="pull-right">7%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 7%;"></div>
+                                </div>
+                            </div><!-- /.pad -->
                         </div><!-- /.col -->
                     </div><!-- /.row - inside box -->
                 </div><!-- /.box-body -->
@@ -176,12 +210,12 @@
                         </div><!-- ./col -->
                         <div class="col-xs-4 text-center">
                             <input type="text" class="knob" data-readonly="true" value="7" data-width="60" data-height="60" data-fgColor="#3c8dbc"/>
-                            <div class="knob-label">社保局</div>
+                            <div class="knob-label">班班通</div>
                         </div><!-- ./col -->
                     </div><!-- /.row -->
 
                 </div><!-- /.box-footer -->
-            </div><!-- / 机房月度统计 -->
+            </div><!-- / 流量统计 -->
 
         </div>
 

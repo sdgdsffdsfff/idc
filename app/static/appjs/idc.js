@@ -13,13 +13,13 @@ $(function() {
         element: 'bar-chart',
         resize: true,
         data: [
-            {y: '10月', a: 1.3, b: 18},
-            {y: '11月', a: 1.5, b: 14},
-            {y: '12月', a: 1.0, b: 10},
-            {y: '01月', a: 1.2, b: 13},
-            {y: '02月', a: 1.6, b: 15},
-            {y: '03月', a: 1.1, b: 11},
-            {y: '04月', a: 1.7, b: 16}
+            {y: '10月', a: 1.3, b: 28},
+            {y: '11月', a: 1.5, b: 24},
+            {y: '12月', a: 1.0, b: 20},
+            {y: '01月', a: 1.2, b: 23},
+            {y: '02月', a: 1.6, b: 25},
+            {y: '03月', a: 1.1, b: 21},
+            {y: '04月', a: 1.7, b: 26}
         ],
         barColors: ['#00a65a', '#f56954'],
         xkey: 'y',
@@ -83,23 +83,11 @@ $(function() {
         formatter: function (x) { return x + " 万"}
     });
 
-    // business chart
-    var business_chart = new Morris.Donut({
-        element: 'business-chart',
-        resize: true,
-        colors: ["#00c0ef", "#932ab6","#00a65a", "#f39c12", "#f56954"],
-        data: [
-            {label: "P2P", value: 65},
-            {label: "上网", value: 8},
-            {label: "多玩YY", value: 12},
-            {label: "网银", value: 6},
-            {label: "其他", value: 4}
-        ],
-        hideHover: 'auto',
-        formatter: function (x) { return x + " %"}
-    });
-
-    // 流量业务分部
-    $(".knob").knob();
+    // 流量统计 Top3
+    $(".knob").knob({
+      'draw' : function () { 
+        $(this.i).val(this.cv + '%')
+      }
+    })
 
 });
