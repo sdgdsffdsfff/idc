@@ -99,7 +99,7 @@ def flow():
 def analyze():
     return render_template('pages/analyze.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'深度分析',
+            content_title=u'流量监测',
             user_name=u'于旸',
             user_role=u'管理员')
 
