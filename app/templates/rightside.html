@@ -3,7 +3,7 @@
 <section class="content-header">
     <h1>
         <span class="zh">{{ content_title }}</span>
-        <small class="zh">石家庄金石机房</small>
+        <small class="zh" data-toggle="modal" data-target="#idc-check">石家庄金石机房</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ url_for('index') }}"><i class="fa fa-dashboard"></i> 
@@ -12,3 +12,32 @@
         <li class="active"><span class="zh">{{ content_title }}</span></li>
     </ol>
 </section>
+
+<!-- IDC Check Model -->
+<div class="modal fade" id="idc-check" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">选择机房</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">河北全省</a>
+                    <a href="#" class="list-group-item">石家庄市</a>
+                    <a href="#" class="list-group-item">保定市</a>
+                    <a href="#" class="list-group-item active">金石机房</a>
+                    <a href="#" class="list-group-item">鹿泉机房</a>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">选定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
