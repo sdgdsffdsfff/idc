@@ -7,6 +7,13 @@
 
 $(function() {
     "use strict";
+
+    // 流量统计 Top3
+    $(".knob").knob({
+      'draw' : function () { 
+        $(this.i).val(this.cv + '%')
+      }
+    })
     
     // 带宽资源统计表
     var bar_chart = new Morris.Bar({
@@ -82,12 +89,5 @@ $(function() {
         hideHover: 'auto',
         formatter: function (x) { return x + " 万"}
     });
-
-    // 流量统计 Top3
-    $(".knob").knob({
-      'draw' : function () { 
-        $(this.i).val(this.cv + '%')
-      }
-    })
 
 });
