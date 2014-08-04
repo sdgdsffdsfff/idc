@@ -97,23 +97,6 @@ $(function() {
             height: '30px'
         });
 
-    };
-
-    // 免费用户支出
-    var freecustomer_chart = new Morris.Donut({
-        element: 'freecustomer-chart',
-        resize: true,
-        colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
-        data: [
-            {label: "互联网", value: 72.3},
-            {label: "政府", value: 5.2},
-            {label: "中小企业", value: 8.9},
-            {label: "金融", value: 12.6}
-        ],
-        hideHover: 'auto',
-        formatter: function (x) { return x + " 万"}
-    });
-
-
+    }
 
 });

@@ -8,10 +8,9 @@ from flask import render_template, send_from_directory
 def index():
     return render_template('index.html',
         web_title=app.config['WEB_TITLE'],
-        content_title=u'IDC 概况',
-        user_name=u'于旸',
-        user_role=u'管理员'
-                           )
+        content_title='IDC 概况',
+        user_name='金石',
+        user_role='管理员')
 
 
 @app.route('/customer/')
@@ -21,15 +20,15 @@ def customer(customer_id=None):
         return render_template('pages/customer_detail.html',
             customer_name=customer_id,
             web_title=app.config['WEB_TITLE'],
-            content_title=u'客户详情',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='客户详情',
+            user_name='金石',
+            user_role='管理员')
 
     return render_template('pages/customer.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'客户信息',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='客户信息',
+            user_name='金石',
+            user_role='管理员')
 
 
 @app.route('/cabinet/')
@@ -39,15 +38,15 @@ def cabinet(cabinet_id=None):
         return render_template('pages/cabinet_detail.html',
             cabinet_name=cabinet_id,
             web_title=app.config['WEB_TITLE'],
-            content_title=u'机房资产',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='机房资产',
+            user_name='金石',
+            user_role='管理员')
 
     return render_template('pages/cabinet.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'机房资产',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='机房资产',
+            user_name='金石',
+            user_role='管理员')
 
 
 @app.route('/bandres/')
@@ -57,15 +56,15 @@ def bandres(port_id=None):
         return render_template('pages/port.html',
             port_name=port_id,
             web_title=app.config['WEB_TITLE'],
-            content_title=u'带宽资源',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='带宽资源',
+            user_name='金石',
+            user_role='管理员')
 
     return render_template('pages/bandres.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'带宽资源',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='带宽资源',
+            user_name='金石',
+            user_role='管理员')
 
 
 @app.route('/power/')
@@ -75,44 +74,40 @@ def power(user_id=None):
         return render_template('pages/power_detail.html',
             username=user_id,
             web_title=app.config['WEB_TITLE'],
-            content_title=u'电力统计',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='电力统计',
+            user_name='金石',
+            user_role='管理员')
 
     return render_template('pages/power.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'电力统计',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='电力统计',
+            user_name='金石',
+            user_role='管理员')
 
 
 @app.route('/flow/')
 def flow():
     return render_template('pages/flow.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'流量统计',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='流量统计',
+            user_name='金石',
+            user_role='管理员')
 
 
 @app.route('/analyze/')
 def analyze():
     return render_template('pages/analyze.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'流量监测',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='流量监测',
+            user_name='金石',
+            user_role='管理员')
 
 
 @app.route('/business/')
 def business():
     return render_template('pages/business.html',
             web_title=app.config['WEB_TITLE'],
-            content_title=u'运营分析',
-            user_name=u'于旸',
-            user_role=u'管理员')
+            content_title='运营分析',
+            user_name='金石',
+            user_role='管理员')
 
-
-@app.route('/puewue/<path:filename>')
-def download_file(filename):
-    return send_from_directory(app.config['PUEWUE_ROOT'], filename)
