@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from app import app
-from flask import render_template, send_from_directory
+from flask import render_template
 
 
 @app.route('/')
