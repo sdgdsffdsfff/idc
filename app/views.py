@@ -2,9 +2,13 @@
 
 from app import app
 from flask import render_template
+from flask.ext.login import LoginManager, login_required
 
+login_manager = LoginManager()
+login_manager.init_app(app)
 
 @app.route('/')
+@login_required
 def index():
     return render_template('index.html',
         web_title=app.config['WEB_TITLE'],
@@ -111,3 +115,6 @@ def business():
             user_name='金石',
             user_role='管理员')
 
+@login_manager.user_loader
+def load_user(userid):
+    return '金石'
