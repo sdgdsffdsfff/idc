@@ -15,8 +15,7 @@
     
     <body class="skin-blue">
 
-        {% block header %}
-        {% endblock %}
+        {% include 'base/header.html' with context %}
 
         <div class="wrapper row-offcanvas row-offcanvas-left">
         
@@ -26,8 +25,7 @@
             <!-- right-side -->
             <aside class="right-side">
 
-            {% block rightside %}
-            {% endblock %}
+            {% include 'base/rightside.html' with context %}
 
             {% block content %}
             {% endblock %}

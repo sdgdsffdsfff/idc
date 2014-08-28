@@ -1,0 +1,54 @@
+{% extends 'customer/layout.html' %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-md-10 col-md-offset-1">
+            <div class="box box-solid">
+
+                <div class="box-header">
+                    <i class="fa fa-shield"></i>
+                    <h3 class="box-title"><span class="zh">网页访问统计</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <hr>
+
+                    <h4>浏览器访问比例：</h4>
+                    <img src="{{ url_for('static', filename='cdn/pic/webdata/browser.png') }}" class="img-responsive">
+                    <hr>
+
+                    <h4>用户的登陆情况：</h4>
+                    <img src="{{ url_for('static', filename='cdn/pic/webdata/login.png') }}" class="img-responsive">
+                    <hr>
+
+                    <h4>用户的地理位置分布：</h4>
+                    <img src="{{ url_for('static', filename='cdn/pic/webdata/location.png') }}" class="img-responsive">
+                    <hr>
+
+                    <h4>浏览器占比波动：</h4>
+                    <img src="{{ url_for('static', filename='cdn/pic/webdata/stack.png') }}" class="img-responsive">
+                    <hr>
+
+                    <h4>网页组件访问排行：</h4>
+                    <img src="{{ url_for('static', filename='cdn/pic/webdata/feature.png') }}" class="img-responsive">
+                    <hr>
+
+                    <h4>搜索关键词排行：</h4>
+                    <img src="{{ url_for('static', filename='cdn/pic/webdata/search.png') }}" class="img-responsive">
+                    <hr>
+
+                </div>
+
+            </div>
+
+        </div><!-- /.Left col -->
+    </div>
+
+</section>   
+<!-- /.content -->
+
+{% endblock %}

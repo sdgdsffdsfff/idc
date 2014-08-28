@@ -1,0 +1,72 @@
+{% extends 'customer/layout.html' %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-md-3">
+
+            <!-- 3D 机房资源管理 -->
+            <div class="box box-solid">
+
+                <div class="box-header">
+                    <i class="fa fa-credit-card"></i>
+                    <h3 class="box-title"><span class="zh">当月费用</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <a href="{{ url_for('static', filename='cdn/report/billing.pdf') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='cdn/pic/report.png') }}" class="img-responsive" alt="ddos">
+                    </a>
+                </div><!-- /.box-body -->
+            </div><!-- / 3D 机房资源管理 -->
+
+        </div><!-- /.Left col -->
+
+        <!-- Left col -->
+        <div class="col-md-3">
+
+            <!-- 3D 机房资源管理 -->
+            <div class="box box-solid">
+
+                <div class="box-header">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title"><span class="zh">流量分析</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <a href="{{ url_for('static', filename='cdn/report/flow.pdf') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='cdn/pic/report.png') }}" class="img-responsive" alt="ddos">
+                    </a>
+                </div><!-- /.box-body -->
+            </div><!-- / 3D 机房资源管理 -->
+
+        </div><!-- /.Left col -->
+
+        <!-- Left col -->
+        <div class="col-md-3">
+
+            <!-- 3D 机房资源管理 -->
+            <div class="box box-solid">
+
+                <div class="box-header">
+                    <i class="fa fa-shield"></i>
+                    <h3 class="box-title"><span class="zh">安全报告</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <a href="{{ url_for('static', filename='cdn/report/ddos.pdf') }}" target="_blank">
+                        <img src="{{ url_for('static', filename='cdn/pic/report.png') }}" class="img-responsive" alt="ddos">
+                    </a>
+                </div><!-- /.box-body -->
+            </div><!-- / 3D 机房资源管理 -->
+
+        </div><!-- /.Left col -->
+    </div>
+
+</section>   
+<!-- /.content -->
+
+{% endblock %}

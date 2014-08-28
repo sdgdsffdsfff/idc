@@ -1,0 +1,171 @@
+{% extends 'customer/layout.html' %}
+
+{% block css %}
+{{ super() }}
+<link href="{{ url_for('static', filename='web/css/morris/morris.css') }}" rel="stylesheet" type="text/css" />
+<!-- DATA TABLES -->
+<link href="{{ url_for('static', filename='web/css/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<section class="content">
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-lg-6">
+            
+            <!-- 实时流量 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title zh">实时流量</h3>
+                    <div class="box-tools pull-right">
+                        实时&nbsp;
+                        <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                            <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>                                            
+                            <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="interactive" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+            </div><!-- / 实时流量 -->
+
+        </div><!-- Left col -->
+
+        <!-- Right col -->
+        <div class="col-lg-6">
+            <!-- 历史统计 -->
+            <div class="box box-danger zh">
+
+                <!-- box-header -->
+                <div class="box-header">
+                    <!-- tools box -->
+                    <i class="fa fa-signal"></i>
+                    <h3 class="box-title"><span class="zh">历史统计</span></h3>
+                </div><!-- /.box-header -->
+                
+                <!-- box-body -->
+                <div class="box-body no-padding">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <!-- bar chart -->
+                            <div class="chart" id="bar-chart" style="height: 250px;"></div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="pad">
+                                <!-- Progress bars -->
+                                <div class="clearfix">
+                                    <span class="pull-left">P2P 业务</span>
+                                    <small class="pull-right">65%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 65%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">上网</span>
+                                    <small class="pull-right">12%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-red" style="width: 12%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">Web服务</span>
+                                    <small class="pull-right">10%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 10%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">其他</span>
+                                    <small class="pull-right">7%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 7%;"></div>
+                                </div>
+                            </div><!-- /.pad -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row - inside box -->
+                </div><!-- /.box-body -->
+            </div><!-- / 历史统计 -->
+        </div><!-- Right col -->
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            
+            <!-- 上联端口详情 -->
+            <div class="box box-success">
+
+                <div class="box-header">
+                    <i class="fa fa-sitemap"></i>
+                    <h3 class="box-title"><span class="zh">端口详情</span></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table id="port-table" class="table table-bordered table-striped table-vcenter zh">
+                        <thead>
+                            <tr>
+                                <th>端口号</th>
+                                <th>端口类型</th>
+                                <th>IP 地址段</th>
+                                <th>上行流量</th>
+                                <th>下行流量</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>GigabitEthernet2/2/3</td>
+                                <td>10 GB</td>
+                                <td>110.249.212.13/30</td>
+                                <td><div id="sparkline-1"></div></td>
+                                <td><div id="sparkline-2"></div></td>
+                            </tr>
+
+                            <tr>
+                                <td>GigabitEthernet2/2/4</td>
+                                <td>10 GB</td>
+                                <td>110.249.212.17/30</td>
+                                <td><div id="sparkline-3"></div></td>
+                                <td><div id="sparkline-4"></div></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- / 上联端口详情 -->
+
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->
+
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<!-- Raphael.js charts -->
+<script src="{{ url_for('static', filename='cdn/js/raphael-min.js') }}"></script>
+<!-- Morris.js charts -->
+<script src="{{ url_for('static', filename='cdn/js/morris.js') }}" type="text/javascript"></script>
+
+<!-- flot js -->
+<script src="{{ url_for('static', filename='web/js/plugins/flot/jquery.flot.min.js') }}" type="text/javascript"></script>
+
+<!-- data table js -->
+<script src="{{ url_for('static', filename='web/js/plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='web/js/plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+
+<!-- Sparkline -->
+<script src="{{ url_for('static', filename='web/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+
+<!-- flow page -->
+<script src="{{ url_for('static', filename='appjs/customer/flow_page.js') }}" type="text/javascript"></script>
+
+{% endblock %}

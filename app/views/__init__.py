@@ -4,6 +4,7 @@ from app.models import User
 from flask import render_template, redirect, url_for, request, g
 from flask.ext.login import LoginManager, login_user, logout_user, current_user
 from .admin import adminView
+from .customer import customerView
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -11,6 +12,7 @@ login_manager.login_view = 'login'
 login_manager.login_message = '请登陆'
 
 app.register_blueprint(adminView, url_prefix='/admin')
+app.register_blueprint(customerView, url_prefix='/customer')
 
 
 @app.before_request
@@ -21,12 +23,16 @@ def before_request():
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    if current_user.is_anonymous:
+        return render_template('app/login.html')
+
+    index_url = g.user.role + '.' + 'index'
+    return redirect(url_for(index_url))
 
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'GET':
-        return render_template('login.html')
+        return render_template('app/login.html')
 
     username = request.form['username']
     password = request.form['password']

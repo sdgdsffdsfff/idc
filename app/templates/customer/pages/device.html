@@ -1,0 +1,144 @@
+{% extends 'customer/layout.html' %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+    
+        <div class="col-lg-6">
+
+            <!-- 机柜使用情况 -->
+            <div class="box box-success">
+                <div class="box-header">
+                    <i class="fa fa-building-o"></i>
+                    <h3 class="box-title"><span class="zh">机柜使用情况</span></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered table-vcenter zh" >
+                        <tr>
+                            <th>机柜号</th>
+                            <th>设备数量</th>
+                            <th>机柜利用率</th>
+                        </tr>
+
+                        <tr>
+                            <td>2-2-7</td>
+                            <td><span class="badge bg-light-blue"><strong>4</strong></span></td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success" style="width: 33%;">
+                                        <span> 15/42 U</span>
+                                    </div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2-2-8</td>
+                            <td><span class="badge bg-light-blue"><strong>4</strong></span></td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" style="width: 60%;">
+                                        <span> 24/42 U</span>
+                                    </div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- / 机柜使用情况 -->
+
+            <!-- 3D 机房资源管理 -->
+            <div class="box box-solid">
+
+                <div class="box-header">
+                    <i class="fa fa-camera-retro"></i>
+                    <h3 class="box-title"><span class="zh">3D 机房资源管理</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <a href="http://110.249.213.19:8080/uinv_demo/index.html?user=admin&pwd=123&type=3d" target="_blank">
+                        <img src="{{ url_for('static', filename='cdn/pic/3d.png') }}" class="img-responsive" alt="3d">
+                    </a>
+                </div><!-- /.box-body -->
+            </div><!-- / 3D 机房资源管理 -->
+
+        </div><!-- /.col -->
+
+        <div class="col-lg-6">
+
+            <!-- 设备列表 -->
+            <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-sitemap"></i>
+                    <h3 class="box-title"><span class="zh">设备列表</span></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered table-vcenter zh" >
+                        <tr>
+                            <th>#</th>
+                            <th>设备类型</th>
+                            <th>机柜号</th>
+                            <th>设备IP</th>
+                            <th>运行状态</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>交换机</td>
+                            <td>2-0-7</td>
+                            <td>110.249.212.2</td>
+                            <td><span class="badge bg-light-blue"><strong>启用</strong></span></td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>服务器</td>
+                            <td>2-0-7</td>
+                            <td>110.249.212.3</td>
+                            <td><span class="badge bg-light-blue"><strong>启用</strong></span></td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>服务器</td>
+                            <td>2-0-7</td>
+                            <td>110.249.212.4</td>
+                            <td><span class="badge bg-light-blue"><strong>启用</strong></span></td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>服务器</td>
+                            <td>2-0-7</td>
+                            <td>110.249.212.6</td>
+                            <td><span class="badge bg-light-blue"><strong>启用</strong></span></td>
+                        </tr>
+
+
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->   
+            </div><!-- / 设备列表 -->
+
+        </div><!-- /.col -->
+
+        
+
+    </div><!-- /.row -->
+
+</section>   
+<!-- /.content -->
+
+{% endblock %}

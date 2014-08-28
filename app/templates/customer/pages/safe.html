@@ -1,0 +1,112 @@
+{% extends 'customer/layout.html' %}
+
+{% block css %}
+{{ super() }}
+<style type="text/css">
+    .check {
+        text-align: center!important;
+        font-size: 22px;
+        color: #00a65a;
+    }
+
+    .sad {
+        text-align: center!important;
+        font-size: 22px;
+        color: #f56854;
+    }
+
+    .star {
+        font-size: 16px;
+        color: #f39c12;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <!-- Left col -->
+        <div class="col-md-12">
+
+            <!-- 安全防护 -->
+            <div class="box box-info zh">
+
+                <div class="box-header">
+                    <i class="fa fa-plus-circle"></i>
+                    <h3 class="box-title zh">专项防护</h3>
+                </div>
+
+                <div class="box-body table-responsive no-padding">
+
+                    <table class="table table-hover table-vcenter">
+                        <tr>
+                            <th>服务项目</th>
+                            <th>价格</th> 
+                            <th>服务状态</th>
+                            <th>客户评价</th>
+                            <th>安全检测</th>
+                        </tr>
+
+                        <tr>
+                            <td>SSL 漏洞扫描</td>
+                            <td>0 元/月</td>
+                            <td class="check"><i class="fa fa-check-circle"></i></td>
+                            <td class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-success">开始&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>XSS 入侵检测</td>
+                            <td>0 元/月</td>
+                            <td class="check"><i class="fa fa-check-circle"></i></td>
+                            <td class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-success">开始&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td>DDOS 流量清洗</td>
+                            <td>1500 元/月</td>
+                            <td class="sad"><i class="fa fa-minus-circle"></i></td>
+                            <td class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-danger" onclick="location.reload();location.href='{{ url_for('customer.buy') }}' ">购买&nbsp;<i class="fa fa-shopping-cart"></i></button>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div><!-- /. box-body -->
+
+            </div><!-- / 安全防护 -->
+
+        </div><!-- /.Left col -->
+    </div>
+
+</section>   
+<!-- /.content -->
+
+{% endblock %}
