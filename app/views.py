@@ -44,7 +44,7 @@ def logout():
 @app.route('/')
 @login_required
 def index():
-    return render_template('index.html',
+    return render_template('pages/main.html',
         content_title='IDC 概况')
 
 @app.route('/customer/')
