@@ -30,12 +30,12 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="active">
-                <a href="{{ url_for('index') }}">
+                <a href="{{ url_for('admin.index') }}">
                     <i class="fa fa-dashboard"></i> <span class="zh">IDC 概况</span>
                 </a>
             </li>
             <li>
-                <a href="{{ url_for('customer') }}">
+                <a href="{{ url_for('admin.customer') }}">
                     <i class="fa fa-user"></i> <span class="zh">客户信息</span> <small class="badge pull-right bg-green">new</small>
                 </a>
             </li>
@@ -49,8 +49,8 @@
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="{{ url_for('cabinet') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">机房资产</span></a></li>
-                    <li><a href="{{ url_for('bandres') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">带宽资源</span></a></li>
+                    <li><a href="{{ url_for('admin.cabinet') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">机房资产</span></a></li>
+                    <li><a href="{{ url_for('admin.bandres') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">带宽资源</span></a></li>
                 </ul>
 
             </li>
@@ -64,8 +64,8 @@
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="{{ url_for('flow') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">流量统计</span></a></li>
-                    <li><a href="{{ url_for('analyze') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">流量监测</span></a></li>
+                    <li><a href="{{ url_for('admin.flow') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">流量统计</span></a></li>
+                    <li><a href="{{ url_for('admin.analyze') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">流量监测</span></a></li>
                 </ul>
 
             </li>
@@ -79,7 +79,7 @@
                 </a>
 
                 <ul class="treeview-menu">
-                    <li><a href="{{ url_for('business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">收入分析</span></a></li>
+                    <li><a href="{{ url_for('admin.business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">收入分析</span></a></li>
 {#                    <li><a href="{{ url_for('business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">能耗分析</span></a></li>#}
 {#                    <li><a href="{{ url_for('business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">潜在客户分析</span></a></li>#}
 {#                    <li><a href="{{ url_for('business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">IDC竞争力分析</span></a></li>#}
