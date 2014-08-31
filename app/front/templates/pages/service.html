@@ -1,0 +1,132 @@
+{% extends 'layout.html' %}
+{% block css %}
+{{ super() }}
+<style>
+    .services ul {
+        float: left;
+        margin-left: 5em;
+        margin-top: 1em;
+        text-align: left;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>IDC 服务</h1>
+            </div>
+            <div class="span6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="{{ url_for('front.index') }}">首页</a> <span class="divider">/</span></li>
+                    <li class="active">IDC服务</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / .title -->
+
+
+<section class="services">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="center">
+                    <i style="font-size: 48px" class="icon-building icon-large"></i>
+                    <p></p>
+                    <h4>机柜租用业务</h4>
+                    <ul>
+                        <li>全省13个地市的机房可供选择</li>
+                        <li>独有的防DDOS安全机房，保障您的业务安全</li>
+                        <li>7x24小时的专业维护团队，保障机房的安全运营</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span4">
+                <div class="center">
+                    <i style="font-size: 48px" class="icon-bar-chart icon-large"></i>
+                    <p></p>
+                    <h4>带宽租用业务</h4>
+                    <ul>
+                        <li>百M独享，1G，10G 端口多种选择</li>
+                        <li>灵活的计费方式，支持95th、平均值、峰值结算等</li>
+                        <li>专业的QoS规划，支持签订SLA，保障业务稳定运行</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span4">
+                <div class="center">
+                    <i style="font-size: 48px" class="icon-stethoscope icon-large"></i>
+                    <p></p>
+                    <h4>设备监控服务</h4>
+                    <ul>
+                        <li>支持Ping，SNMP，Agent等多种监控方式</li>
+                        <li>智能预警及实时报警功能，保障您的业务永远在线</li>
+                        <li>全方位的监控指标和报表，让您充分掌握设备状况</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="center">
+                    <i style="font-size: 48px" class="icon-screenshot icon-large"></i>
+                    <p></p>
+                    <h4>DDOS 安全防护</h4>
+                    <ul>
+                        <li>40G 的 DDOS 清洗能力，全面保障互联网业务</li>
+                        <li>顶尖的专家团队，实时为您防御复杂的 DDOS 攻击</li>
+                        <li>支持 HTTPS 加密防护，为金融类企业提供高端保障</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span4">
+                <div class="center">
+                    <i style="font-size: 48px" class="icon-magic icon-large"></i>
+                    <p></p>
+                    <h4>网站 SEO 服务</h4>
+                    <ul>
+                        <li>专业的 SEO 团队，为您的网站提供全面的优化方案</li>
+                        <li>顶尖的算法，保障百度，谷歌，必应等主流搜索排名</li>
+                        <li>更深入的营销指导，为您打造全方位的口碑营销策略</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span4">
+                <div class="center">
+                    <i style="font-size: 48px" class="icon-globe icon-large"></i>
+                    <p></p>
+                    <h4>大数据分析服务</h4>
+                    <ul>
+                        <li>一对一量身定制，保障大数据给您带来的收益</li>
+                        <li>基于 Spark 构建的尖端平台，提升 60% 的数据效益</li>
+                        <li>前Google，百度的顶尖数据专家，给您最先进的分析手段</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="center">
+            <a class="btn btn-primary btn-large" href="#">立刻咨询</a>
+        </div>
+        <p>&nbsp;</p>
+
+    </div>
+</section>
+
+{% endblock %}

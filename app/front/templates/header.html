@@ -1,0 +1,65 @@
+<!--Header-->
+<header class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <a id="logo" class="pull-left" href="{{ url_for('front.index') }}"></a>
+            <div class="nav-collapse collapse pull-right">
+                <ul class="nav">
+                    <li class="active"><a href="{{ url_for('front.index') }}">首页</a></li>
+                    <li><a href="{{ url_for('front.room') }}">机房展示</a></li>
+                    <li><a href="{{ url_for('front.service') }}">IDC 服务</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">解决方案 <i class="icon-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('front.ddos') }}">DDOS 清洗服务</a></li>
+                            <li><a href="#">SEO 网站优化服务</a></li>
+                            <li><a href="#">弹性计算服务</a></li>
+                            <li><a href="#">数据分析服务</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">负载均衡服务</a></li>
+                            <li><a href="#">安全检测服务</a></li>
+                            <li><a href="#">压力测试服务</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">异地灾备服务</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('front.contact') }}">联系我们</a></li>
+                    <li class="login">
+                        <a data-toggle="modal" href="#loginForm"><i class="icon-lock"></i> 登陆</a>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</header>
+<!-- /header -->
+
+<!--  Login form -->
+<div class="modal hide fade in" id="loginForm" aria-hidden="false">
+    <div class="modal-header">
+        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>
+        <h4>用户登陆</h4>
+    </div>
+
+    <!--Modal Body-->
+    <div class="modal-body">
+        <form class="form-inline" action="{{ url_for('login') }}" method="post" id="form-login">
+            <input type="text" class="input-small" placeholder="请输入用户名" name="username">
+            <input type="password" class="input-small" placeholder="请输入密码" name="password">
+            <label class="checkbox">
+                <input type="checkbox"> 记住我
+            </label>
+            <button type="submit" class="btn btn-primary">登陆</button>
+        </form>
+        <a href="#">忘记密码?</a>
+    </div>
+    <!--/Modal Body-->
+</div>
+<!--  /Login form -->

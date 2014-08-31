@@ -11,9 +11,6 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 login_manager.login_message = '请登陆'
 
-app.register_blueprint(adminView, url_prefix='/admin')
-app.register_blueprint(customerView, url_prefix='/customer')
-
 
 @app.before_request
 def before_request():
@@ -24,7 +21,7 @@ def before_request():
 @app.route('/')
 def index():
     if current_user.is_anonymous:
-        return render_template('app/login.html')
+        return redirect(url_for('front.index'))
 
     index_url = g.user.role + '.' + 'index'
     return redirect(url_for(index_url))

@@ -1,0 +1,160 @@
+{% extends 'layout.html' %}
+
+{% block css %}
+{{ super() }}
+<style>
+    .ddos li{
+       margin-top: 15px;
+       margin-bottom: 15px;
+       font-size: 125%;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>Anti DDOS</h1>
+            </div>
+            <div class="span6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="index.html">首页</a> <span class="divider">/</span></li>
+                    <li><a href="#">解决方案</a> <span class="divider">/</span></li>
+                    <li class="active">DDOS 清洗</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / .title -->
+
+<section id="pricing-table" class="container">
+    <div class="row-fluid">
+        <div class="center span6">
+            <i style="font-size: 48px" class="icon-screenshot icon-large"></i>
+            <p></p>
+            <h2>抗 DDOS 攻击服务</h2>
+        </div>
+        <div class="span6 ddos">
+            <ul>
+                <li>IDC 全流量 DDOS 清洗能力，全面保障互联网业务</li>
+                <li>顶尖的专家团队，实时为您防御复杂的 DDOS 攻击</li>
+                <li>支持 HTTPS 加密防护，为金融类企业提供高端保障</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="big-gap"></div>
+
+    <div class="row-fluid center clearfix">
+        <div class="span3">
+            <ul class="plan plan1">
+                <li class="plan-name">
+                    <h3>基础版</h3>
+                </li>
+                <li class="plan-price">
+                    <strong>1000</strong> 元 / 月
+                </li>
+                <li>
+                    <strong>1 GB</strong> 流量清洗
+                </li>
+                <li>
+                    <strong>1 IP</strong> 防护
+                </li>
+                <li>
+                    <strong>HTTP</strong> 保护
+                </li>
+                <li>
+                    <strong>邮件</strong> 支持
+                </li>
+                <li class="plan-action">
+                    <a href="#" class="btn btn-transparent">现在购买</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="span3">
+            <ul class="plan plan2 featured">
+                <li class="plan-name">
+                    <h3>标准版</h3>
+                </li>
+                <li class="plan-price">
+                    <strong>1500</strong> 元 / 月
+                </li>
+                <li>
+                    <strong>5 GB</strong> 流量清洗
+                </li>
+                <li>
+                    <strong>2 IP</strong> 防护
+                </li>
+                <li>
+                    <strong>HTTP</strong> 保护
+                </li>
+                <li>
+                    <strong>8x5 电话</strong> 支持
+                </li>
+                <li class="plan-action">
+                    <a href="#" class="btn btn-transparent">现在购买</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="span3">
+            <ul class="plan plan3">
+                <li class="plan-name">
+                    <h3>高级版</h3>
+                </li>
+                <li class="plan-price">
+                    <strong>3000</strong> 元 / 月
+                </li>
+                <li>
+                    <strong>10 GB</strong> 流量清洗
+                </li>
+                <li>
+                    <strong>5 IP</strong> 防护
+                </li>
+                <li>
+                    <strong>HTTP / HTTPS</strong> 保护
+                </li>
+                <li>
+                    <strong>7x24 电话</strong> 支持
+                </li>
+                <li class="plan-action">
+                    <a href="#" class="btn btn-transparent">现在购买</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="span3">
+            <ul class="plan plan4">
+                <li class="plan-name">
+                    <h3>专家版</h3>
+                </li>
+                <li class="plan-price">
+                    <strong>5000</strong> 元 / 月
+                </li>
+                <li>
+                    <strong>无限</strong> 流量清洗
+                </li>
+                <li>
+                    <strong>10 IP</strong> 防护
+                </li>
+                <li>
+                    <strong>HTTP / HTTPS</strong> 保护
+                </li>
+                <li>
+                    <strong>ERT 专家团队</strong> 支持
+                </li>
+                <li class="plan-action">
+                    <a href="#" class="btn btn-transparent">现在购买</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+</section>
+{% endblock %}

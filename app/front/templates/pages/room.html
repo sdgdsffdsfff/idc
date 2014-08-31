@@ -1,0 +1,416 @@
+{% extends 'layout.html' %}
+{% block css %}
+{{ super() }}
+<style>
+        .filter {
+            margin-top: 20px;
+            display: block;
+            float: right;
+        }
+        .filter h5 {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .filter select {
+            height: 40px;
+            margin-right: 20px;
+        }
+        .desc i{
+            color: #f4b907;
+        }
+
+        .preview img {
+            border-radius: 15px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>机房展示</h1>
+            </div>
+            <div class="span6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="{{ url_for('front.index') }}">首页</a> <span class="divider">/</span></li>
+                    <li class="active">机房展示</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / .title -->
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="filter">
+            <form class="form-inline">
+                <h5>按城市筛选:</h5>
+                <select id="city">
+                    <option>全部</option>
+                    <option>石家庄</option>
+                    <option>保定</option>
+                    <option>唐山</option>
+                </select>
+
+                <h5>按星级筛选:</h5>
+                <select id="star">
+                    <option>全部</option>
+                    <option>三星</option>
+                    <option>四星</option>
+                    <option>五星</option>
+                </select>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- / .filter -->
+
+<section id="portfolio" class="container main">
+    <ul class="gallery col-4">
+        <!--Item 1-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item1.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="{{ url_for('front.room', room_name='石家庄金石机房') }}"><i class="icon-eye-open"></i></a><a target="_blank" href="{{ web_3d_url }}"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="5">
+                <h5>石家庄金石机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 1-->
+
+        <!--Item 2-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item2.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="4.5">
+                <h5>石家庄鹿泉机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-half"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 2-->
+
+        <!--Item 3-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item3.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="3.5">
+                <h5>石家庄二枢纽机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-half"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 3-->
+
+        <!--Item 4-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item4.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="4">
+                <h5>保定市中心机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 4-->
+
+        <!--Item 5-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item5.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="2">
+                <h5>保定市A机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 5-->
+
+        <!--Item 6-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item6.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="2.5">
+                <h5>保定市B机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-half"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 6-->
+
+        <!--Item 7-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item7.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="3">
+                <h5>保定市C机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 7-->
+
+        <!--Item 8-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item8.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="2">
+                <h5>保定市D机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 8-->
+
+        <!--Item 9-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item9.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="3">
+                <h5>唐山市A机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 9-->
+
+        <!--Item 10-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item10.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="3.5">
+                <h5>唐山市B机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-half"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 10-->
+
+        <!--Item 11-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item11.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="2">
+                <h5>唐山市C机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 11-->
+
+        <!--Item 12-->
+        <li>
+            <div class="preview">
+                <img alt=" " src="{{ url_for('front.static', filename='images/portfolio/thumb/item12.png') }}">
+                <div class="overlay">
+                </div>
+                <div class="links">
+                    <a href="#"><i class="icon-eye-open"></i></a><a href="#"><i class="icon-link"></i></a>
+                </div>
+            </div>
+            <div class="desc" data-star="3">
+                <h5>唐山市D机房&nbsp;
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star"></i>
+                    <i class="icon-star-empty"></i>
+                    <i class="icon-star-empty"></i>
+                </h5>
+            </div>
+        </li>
+        <!--/Item 12-->
+    </ul>
+</section>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+
+<script src="{{ url_for('front.static', filename='js/vendor/isotope.min.js') }}"></script>
+<script type="text/javascript">
+$(function(){
+    var $gallery = $('.gallery');
+
+    $gallery.isotope({ filter: '*' });
+
+    var $cityFilter = $('#city');
+    var $starFilter = $('#star');
+
+    $cityFilter.on('change', function() {
+
+        $starFilter.val('全部');
+
+        var city = $(this).find('option:selected').text();
+
+        if(city == '全部') {
+            $gallery.isotope({ filter: '*' });
+        }
+        else {
+
+            var filterFunc = function() {
+                var name = $(this).find('h5').text();
+                var matchCity = new RegExp(city);
+                return name.match( matchCity );
+            };
+
+            $gallery.isotope({ filter: filterFunc });
+        }
+    });
+
+    $starFilter.on('change', function() {
+
+        $cityFilter.val('全部');
+
+        var star = $(this).find('option:selected').text();
+        var starLevel = 0;
+
+        switch(star) {
+            case '三星':
+                starLevel = 3;
+                break;
+            case '四星':
+                starLevel = 4;
+                break;
+            case '五星':
+                starLevel = 5;
+                break;
+            default :
+                starLevel = 0;
+                break;
+        }
+
+        if(starLevel == 0) {
+            $gallery.isotope({ filter: '*' });
+        }
+        else {
+            var filterFunc = function() {
+                var starString = $(this).find('.desc').data('star');
+                return parseInt( starString, 10 ) >= starLevel && parseInt( starString, 10 ) < starLevel + 1;
+            };
+
+            $gallery.isotope({ filter: filterFunc });
+        }
+
+    });
+
+
+});
+</script>
+
+{% endblock %}
