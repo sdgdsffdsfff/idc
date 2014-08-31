@@ -10,9 +10,31 @@
             <div class="pull-left info">
                 <p class="zh">{{ user_name }}</p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> 
-                    <span class="zh">在线</span>
+                <a href="#">
+                    <i class="fa fa-circle text-success"></i>
+                    <span data-toggle="modal" data-target="#customer-service" class="zh">在线客服</span>
                 </a>
+
+                <div class="modal fade" id="customer-service" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                            <h4 class="modal-title">在线客服</h4>
+                            </div>
+                        <div class="modal-body">
+                            <textarea name="customerTalk" class="form-control" rows="10" placeholder="欢迎使用在线客服系统"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-success">发送</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -31,7 +53,7 @@
         <ul class="sidebar-menu">
             <li class="active">
                 <a href="{{ url_for('customer.index') }}">
-                    <i class="fa fa-dashboard"></i> <span class="zh">客户概览</span>
+                    <i class="fa fa-dashboard"></i> <span class="zh">资产概览</span>
                 </a>
             </li>
 

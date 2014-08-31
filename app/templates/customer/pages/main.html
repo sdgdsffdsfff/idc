@@ -39,7 +39,7 @@
                         32<sup style="font-size: 18px" class="zh">台</sup>
                     </h3>
                     <p class="zh">
-                        上架设备
+                        我的设备
                     </p>
                 </div>
                 <div class="icon">
@@ -60,34 +60,13 @@
                         53<sup style="font-size: 20px">%</sup>
                     </h3>
                     <p class="zh">
-                        机柜利用率
+                        我的机柜租用率
                     </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
                 <a href="{{ url_for('customer.device') }}" class="small-box-footer">
-                    <span class="zh">详情</span> 
-                    <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div><!-- ./col -->
-
-        <div class="col-lg-3 col-xs-6">
-            <!-- 带宽利用率 -->
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>
-                        82<sup style="font-size: 20px">%</sup>
-                    </h3>
-                    <p class="zh">
-                        带宽利用率
-                    </p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="{{ url_for('customer.flow') }}" class="small-box-footer">
                     <span class="zh">详情</span> 
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
@@ -102,11 +81,32 @@
                         20 <sup style="font-size: 18px" class="zh">GB</sup>
                     </h3>
                     <p class="zh">
-                        租用带宽总计
+                        我的总带宽
                     </p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-ios7-cart-outline"></i>
+                </div>
+                <a href="{{ url_for('customer.flow') }}" class="small-box-footer">
+                    <span class="zh">详情</span>
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div><!-- ./col -->
+
+        <div class="col-lg-3 col-xs-6">
+            <!-- 带宽利用率 -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>
+                        82<sup style="font-size: 20px">%</sup>
+                    </h3>
+                    <p class="zh">
+                        我的带宽利用率
+                    </p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
                 </div>
                 <a href="{{ url_for('customer.flow') }}" class="small-box-footer">
                     <span class="zh">详情</span> 
@@ -115,19 +115,20 @@
             </div>
         </div><!-- ./col -->
 
+
     </div><!-- / 统计信息 -->
 
     <!-- Main row -->
     <div class="row">
         <!-- Left col -->
-        <div class="col-lg-6 connectedSortable">
+        <div class="col-lg-6 col-md-6">
 
             <!-- 健康状态监测 -->
             <div class="box box-info zh">
 
                 <div class="box-header">
                     <i class="fa fa-plus-circle"></i>
-                <h3 class="box-title zh">健康状态监测</h3>
+                <h3 class="box-title zh">机房状态</h3>
                 </div>
 
                 <div class="box-body table-responsive no-padding">
@@ -167,8 +168,7 @@
                             <td>安全防护</td>
                             <td class="sad"><i class="fa fa-minus-circle"></i></td>
                             <td>
-                                <button class="btn btn-sm btn-info" onclick="location.reload();location.href='{{ url_for('customer.buy') }}' ">尚未购买</button>
-
+                                <a href="{{ url_for('front.ddos') }}" target="_blank" class="btn btn-sm btn-info">尚未购买</a>
                             </td>
                         </tr>
 
@@ -182,12 +182,12 @@
 
                 <div class="box-header">
                     <i class="fa fa-camera-retro"></i>
-                    <h3 class="box-title"><span class="zh">3D 机房资源管理</span></h3>
+                    <h3 class="box-title"><span class="zh">查看设备</span></h3>
                 </div><!-- /.box-header -->
 
                 <div class="box-body">
-                    <a href="http://110.249.213.19:8080/uinv_demo/index.html?user=admin&pwd=123&type=3d" target="_blank">
-                        <img src="{{ url_for('static', filename='cdn/pic/3d.png') }}" class="img-responsive" alt="3d">
+                    <a href="{{ web_3d_url }}" target="_blank">
+                        <img src="{{ url_for('static', filename='cdn/pic/3d1.png') }}" class="img-responsive" alt="3d">
                     </a>
                 </div><!-- /.box-body -->
             </div><!-- / 3D 机房资源管理 -->
@@ -197,27 +197,6 @@
         <!-- Right col -->
         <div class="col-lg-6 connectedSortable">
 
-            <!-- SLA 统计 -->
-            <div class="box box-solid">
-                <!-- Custom tabs -->
-                <div class="nav-tabs-custom">
-                    <!-- Tabs within a box -->
-                    <ul class="nav nav-tabs pull-right">
-                        <li class="active"><a href="#sla-chart" data-toggle="tab">
-                            <span class="zh">网络质量</span></a>
-                        </li>
-                        <li class="pull-left header"><i class="fa fa-star"></i>
-                            <span class="zh">SLA 报告</span>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content no-padding">
-                        <!-- SLA 报表 -->
-                        <div class="chart tab-pane active" id="sla-chart" style="position: relative; height: 300px;"></div>
-                    </div>
-                </div><!-- /.nav-tabs-custom -->
-            </div><!-- / SLA 统计 -->
-
             <!-- 流量统计 -->
             <div class="box box-success zh">
 
@@ -225,7 +204,7 @@
                 <div class="box-header">
                     <!-- tools box -->
                     <i class="fa fa-bar-chart-o"></i>
-                    <h3 class="box-title"><span class="zh">流量统计</span></h3>
+                    <h3 class="box-title"><span class="zh">我的流量统计</span></h3>
                 </div><!-- /.box-header -->
                 
                 <!-- box-body -->
@@ -274,6 +253,27 @@
                     </div><!-- /.row - inside box -->
                 </div><!-- /.box-body -->
             </div><!-- / 流量统计 -->
+
+            <!-- SLA 统计 -->
+            <div class="box box-solid">
+                <!-- Custom tabs -->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a href="#sla-chart" data-toggle="tab">
+                            <span class="zh">网络质量</span></a>
+                        </li>
+                        <li class="pull-left header"><i class="fa fa-star"></i>
+                            <span class="zh">SLA 报告</span>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content no-padding">
+                        <!-- SLA 报表 -->
+                        <div class="chart tab-pane active" id="sla-chart" style="position: relative; height: 300px;"></div>
+                    </div>
+                </div><!-- /.nav-tabs-custom -->
+            </div><!-- / SLA 统计 -->
 
         </div><!-- /.Right col -->
 

@@ -10,7 +10,8 @@ customerView = Blueprint('customer', __name__)
 @login_required
 def index():
     return render_template('customer/pages/main.html',
-        content_title='客户概览')
+        content_title='我的资产',
+        web_3d_url='http://3d.uunus.com/uinv_demo/index.html?user=admin&pwd=123&type=3d')
 
 
 @customerView.route('/safe')
