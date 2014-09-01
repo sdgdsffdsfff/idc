@@ -1,0 +1,229 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <!-- 带宽租用统计 -->
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-info"></i>
+                    <h3 class="box-title"><span class="zh">带宽租用统计</span></h3>
+                </div><!-- /.box-header -->
+
+                <div class="box-body">
+                    <table class="table table-bordered zh table-vcenter" >
+                        <tr>
+                            <th>#</th>
+                            <th>租用客户</th>
+                            <th>租用带宽</th>
+                            <th>峰值流量</th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td>蓝汛</td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-danger" style="width: 90%;">
+                                        <span>18/20 GB</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><div id="sparkline-1"></div>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>班班通</td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-primary" style="width: 40%;">
+                                        <span>0.4/1 GB</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><div id="sparkline-2"></div>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>光大银行</td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-green" style="width: 20%;">
+                                        <span>0.2/1 GB</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><div id="sparkline-3"></div>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>社保局</td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-yellow" style="width: 70%;">
+                                        <span>0.7/1 GB</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><div id="sparkline-4"></div>
+                        </tr>
+                        <tr>
+                            <td>5.</td>
+                            <td>腾讯</td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-green" style="width: 30%;">
+                                        <span>3/10 GB</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><div id="sparkline-5"></div>
+                        </tr>
+                    </table>
+                </div><!-- /.box-body -->
+
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->
+                
+            </div><!-- / 带宽租用统计 -->
+
+            <!-- 可用资源 -->
+            <div class="box box-solid">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li class="active"><a href="#band-chart" data-toggle="tab">
+                            <span class="zh">带宽资源</span></a>
+                        </li>
+                        <li><a href="#ip-chart" data-toggle="tab">
+                            <span class="zh">IP 资源</span></a>
+                        </li>
+                        <li class="pull-left header"><i class="fa fa-tag"></i>
+                            <span class="zh">可用资源</span>
+                        </li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="band-chart" style="position: relative; height: 300px;"></div>
+                        <div class="chart tab-pane" id="ip-chart" style="position: relative; height: 300px;"></div>
+                    </div>
+                </div><!-- /.nav-tabs-custom -->
+            </div> <!-- / 剩余资源 -->
+
+        </div>
+        
+        <div class="col-lg-6">
+
+            <!-- 流量统计 -->
+            <div class="box box-info zh">
+
+                <!-- box-header -->
+                <div class="box-header">
+                    <!-- tools box -->
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title"><span class="zh">流量月度统计</span></h3>
+                </div><!-- /.box-header -->
+                
+                <!-- box-body -->
+                <div class="box-body no-padding">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <!-- bar chart -->
+                            <div class="chart" id="bar-chart" style="height: 250px;"></div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="pad">
+                                <!-- Progress bars -->
+                                <div class="clearfix">
+                                    <span class="pull-left">P2P 业务</span>
+                                    <small class="pull-right">65%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-green" style="width: 65%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">上网</span>
+                                    <small class="pull-right">12%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-red" style="width: 12%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">Web服务</span>
+                                    <small class="pull-right">10%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-light-blue" style="width: 10%;"></div>
+                                </div>
+
+                                <div class="clearfix">
+                                    <span class="pull-left">其他</span>
+                                    <small class="pull-right">7%</small>
+                                </div>
+                                <div class="progress xs">
+                                    <div class="progress-bar progress-bar-aqua" style="width: 7%;"></div>
+                                </div>
+                            </div><!-- /.pad -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row - inside box -->
+                </div><!-- /.box-body -->
+
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                            <input type="text" class="knob" data-readonly="true" value="60" data-width="60" data-height="60" data-fgColor="#f56954"/>
+                            <div class="knob-label">
+                                <span class="zh">蓝讯</span>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                            <input type="text" class="knob" data-readonly="true" value="18" data-width="60" data-height="60" data-fgColor="#00a65a"/>
+                            <div class="knob-label">
+                                <span class="zh">腾讯</span>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-xs-4 text-center">
+                            <input type="text" class="knob" data-readonly="true" value="7" data-width="60" data-height="60" data-fgColor="#3c8dbc"/>
+                            <div class="knob-label">班班通</div>
+                        </div><!-- ./col -->
+                    </div><!-- /.row -->
+
+                </div><!-- /.box-footer -->
+            </div><!-- / 流量统计 -->
+
+        </div>
+
+    </div>
+</section>   
+<!-- /.content -->
+
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<!-- Raphael.js charts -->
+<script src="{{ url_for('static', filename='cdn/js/raphael-min.js') }}"></script>
+<!-- Morris.js charts -->
+<script src="{{ url_for('static', filename='cdn/js/morris.js') }}" type="text/javascript"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ url_for('static', filename='web/js/plugins/jqueryKnob/jquery.knob.js') }}" type="text/javascript"></script>
+<!-- Sparkline -->
+<script src="{{ url_for('static', filename='web/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+<!-- page js -->
+<script src="{{ url_for('static', filename='appjs/admin/bandres_page.js') }}" type="text/javascript"></script>
+
+{% endblock %}

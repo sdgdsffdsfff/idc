@@ -5,6 +5,7 @@ from flask import render_template, redirect, url_for, request, g
 from flask.ext.login import LoginManager, login_user, logout_user, current_user
 from .admin import adminView
 from .customer import customerView
+from .manager import managerView
 
 login_manager = LoginManager()
 login_manager.init_app(app)
