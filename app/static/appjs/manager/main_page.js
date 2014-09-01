@@ -29,34 +29,33 @@ $(function() {
             { "title": "城市", "class": "center" },
             { "title": "机柜总量", "class": "center" },
             { "title": "带宽总量", "class": "center" },
-            { "title": "客户评价", "class": "center", "orderable": false },
-            { "title": "内部评分", "class": "center", "orderable": false }
+            { "title": "增值业务", "class": "center", "orderable": false }
         ],
         "data": [
-            ["1", "金石", "石家庄", "410", "40G",returnStar(5), returnStar(5)],
-            ["2", "鹿泉","石家庄", "1265", "220G", returnStar(4), returnStar(5)],
-            ["3", "二枢纽","石家庄", "762", "120G", returnStar(3), returnStar(3)],
-            ["4", "A机房","保定", "163", "40G", returnStar(2), returnStar(3)],
-            ["5", "B机房","保定", "256", "80G", returnStar(3), returnStar(4)],
-            ["6", "C机房","保定", "855", "60G", returnStar(3), returnStar(3)],
-            ["7", "A机房","唐山", "245", "100G", returnStar(4), returnStar(5)],
-            ["8", "B机房","唐山", "726", "90G", returnStar(5), returnStar(2)],
-            ["9", "C机房","唐山", "655", "60G", returnStar(3), returnStar(2)],
-            ["10", "A机房","邯郸", "245", "100G", returnStar(4), returnStar(5)],
-            ["11", "B机房","邯郸", "726", "90G", returnStar(5), returnStar(2)],
-            ["12", "C机房","邯郸", "655", "60G", returnStar(3), returnStar(2)],
-            ["13", "A机房","张家口", "163", "40G", returnStar(2), returnStar(3)],
-            ["15", "B机房","张家口", "256", "80G", returnStar(3), returnStar(4)],
-            ["16", "C机房","张家口", "855", "60G", returnStar(3), returnStar(3)],
-            ["17", "A机房","承德", "245", "100G", returnStar(4), returnStar(5)],
-            ["18", "B机房","承德", "726", "90G", returnStar(5), returnStar(2)],
-            ["19", "C机房","承德", "655", "60G", returnStar(3), returnStar(2)],
-            ["20", "D机房","承德", "655", "60G", returnStar(3), returnStar(2)],
-            ["21", "A机房","沧州", "163", "40G", returnStar(2), returnStar(3)],
-            ["22", "B机房","沧州", "256", "80G", returnStar(3), returnStar(4)],
-            ["23", "C机房","沧州", "855", "60G", returnStar(3), returnStar(3)],
-            ["24", "D机房","沧州", "245", "100G", returnStar(4), returnStar(5)],
-            ["25", "E机房","沧州", "726", "90G", returnStar(5), returnStar(2)]
+            ["1", "金石", "石家庄", "410", "40G",returnStar(5)],
+            ["2", "鹿泉","石家庄", "1265", "220G", returnStar(4)],
+            ["3", "二枢纽","石家庄", "762", "120G", returnStar(3)],
+            ["4", "A机房","保定", "163", "40G", returnStar(2)],
+            ["5", "B机房","保定", "256", "80G", returnStar(3)],
+            ["6", "C机房","保定", "855", "60G", returnStar(3)],
+            ["7", "A机房","唐山", "245", "100G", returnStar(4)],
+            ["8", "B机房","唐山", "726", "90G", returnStar(5)],
+            ["9", "C机房","唐山", "655", "60G", returnStar(3)],
+            ["10", "A机房","邯郸", "245", "100G", returnStar(4)],
+            ["11", "B机房","邯郸", "726", "90G", returnStar(5)],
+            ["12", "C机房","邯郸", "655", "60G", returnStar(3)],
+            ["13", "A机房","张家口", "163", "40G", returnStar(2)],
+            ["15", "B机房","张家口", "256", "80G", returnStar(3)],
+            ["16", "C机房","张家口", "855", "60G", returnStar(3)],
+            ["17", "A机房","承德", "245", "100G", returnStar(4)],
+            ["18", "B机房","承德", "726", "90G", returnStar(5)],
+            ["19", "C机房","承德", "655", "60G", returnStar(3)],
+            ["20", "D机房","承德", "655", "60G", returnStar(3)],
+            ["21", "A机房","沧州", "163", "40G", returnStar(2)],
+            ["22", "B机房","沧州", "256", "80G", returnStar(3)],
+            ["23", "C机房","沧州", "855", "60G", returnStar(3)],
+            ["24", "D机房","沧州", "245", "100G", returnStar(4)],
+            ["25", "E机房","沧州", "726", "90G", returnStar(5)]
         ]
     });
 
@@ -74,16 +73,16 @@ $(function() {
             { "title": "#", "class": "center" },
             { "title": "业务名称", "class": "center" },
             { "title": "业务收入（万/月）", "class": "center" },
-            { "title": "客户评价", "class": "center", "orderable": false },
-            { "title": "内部评分", "class": "center", "orderable": false }
+            { "title": "业务支出（万/月）", "class": "center"},
+            { "title": "投资收益（%）", "class": "center"}
         ],
         "data": [
-            ["1", "机柜租用", "123.5",returnStar(4), returnStar(3)],
-            ["2", "带宽租用", "316.4",returnStar(5), returnStar(3)],
-            ["3", "DDOS 流量清洗", "72.4",returnStar(5), returnStar(5)],
-            ["4", "压力测试服务", "16.4",returnStar(5), returnStar(3)],
-            ["5", "云计算服务", "96.4",returnStar(5), returnStar(5)],
-            ["6", "网站安全测试", "26.4",returnStar(3), returnStar(3)]
+            ["1", "机柜租用", "123.5", "83.4", "148.0" ],
+            ["2", "带宽租用", "316.4","159.2", "198.7"],
+            ["3", "DDOS 流量清洗", "72.4","95.2", "76.1"],
+            ["4", "压力测试服务", "16.4","18.2","90.1" ],
+            ["5", "云计算服务", "96.4", "187.6","51.3"],
+            ["6", "网站安全测试", "26.4", "58.5","45.1"]
         ]
     });
 

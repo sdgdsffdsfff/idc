@@ -22,6 +22,18 @@ def customer(customer_id=None):
     return render_template('manager/pages/customer.html',
             content_title='客户信息')
 
+@managerView.route('/room/')
+@managerView.route('/room/<room_name>')
+@login_required
+def room(room_name=None):
+    if room_name:
+        return render_template('manager/pages/room_detail.html',
+            room_name=room_name,
+            content_title='机房评估')
+
+    return render_template('manager/pages/room.html',
+            content_title='机房评估')
+
 
 @managerView.route('/cabinet/')
 @login_required
