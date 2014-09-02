@@ -76,8 +76,7 @@ $(function() {
         calculable : true,
         xAxis : [
             {
-                type : 'value',
-                axisLabel:{formatter:'{value} 万元'}
+                type : 'value'
             }
         ],
         yAxis : [
@@ -114,7 +113,7 @@ $(function() {
                 stack: '总量',
                 itemStyle : { normal: {label : {show: true, position: 'insideRight'}}},
                 data:[5.3, 18.1, 4.5, 4.5, 3.6, 5.2, 7.8]
-            }
+            },
         ]
     };
 
@@ -174,75 +173,52 @@ $(function() {
     var investChart = echarts.init(investChartDom);
     var investOption = {
         tooltip : {
-            trigger: 'axis'
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
         },
         legend: {
-            data:[
-                '机柜总量占比', '带宽总量占比', '增值业务投资占比','',
-                '机柜租用占比', '带宽租用占比', '增值业务收益占比'
-            ]
+            data:['当月利润', '机房支出', '机房收入']
         },
         calculable : true,
         xAxis : [
             {
-                type : 'category',
-                data : ['金石','鹿泉','二枢纽','唐山A','保定A']
-            },
-            {
-                type : 'category',
-                axisLine: {show:false},
-                axisTick: {show:false},
-                axisLabel: {show:false},
-                splitArea: {show:false},
-                splitLine: {show:false},
-                data : ['金石','鹿泉','二枢纽','唐山A','保定A']
+                type : 'value'
             }
         ],
         yAxis : [
             {
-                type : 'value',
-                axisLabel:{formatter:'{value} %'}
+                type : 'category',
+                axisTick : {show: false},
+                data : ['金石','鹿泉','二枢纽','保定A','保定B','唐山A','唐山B']
             }
         ],
         series : [
             {
-                name:'机柜租用占比',
+                name:'当月利润',
                 type:'bar',
-                itemStyle: {normal: {color:'rgba(193,35,43,1)', label:{show:true}}},
-                data:[2.5, 5.3, 4.3, 3.5, 2.4]
+                itemStyle : { normal: {label : {show: true, position: 'inside'}}},
+                data:[20.2, 17.0, 24.1, 24.2, 20.1, 22.6, 21.8]
             },
             {
-                name:'带宽租用占比',
+                name:'机房收入',
                 type:'bar',
-                itemStyle: {normal: {color:'rgba(181,195,52,1)', label:{show:true,textStyle:{color:'#27727B'}}}},
-                data:[3.6, 12.3, 8.3, 4.5, 3.4]
+                stack: '总量',
+                barWidth : 5,
+                itemStyle: {normal: {
+                    label : {show: true}
+                }},
+                data:[32.5, 30.2, 34.2, 37.6, 39.8, 45.8, 42.0]
             },
             {
-                name:'增值业务收益占比',
+                name:'机房支出',
                 type:'bar',
-                itemStyle: {normal: {color:'rgba(252,206,16,1)', label:{show:true,textStyle:{color:'#E87C25'}}}},
-                data:[12.5, 4.3, 5.3, 3.5, 2.4]
-            },
-            {
-                name:'机柜总量占比',
-                type:'bar',
-                xAxisIndex:1,
-                itemStyle: {normal: {color:'rgba(193,35,43,0.5)', label:{show:true}}},
-                data:[5.1, 12.3, 9.5, 5.5, 6.2]
-            },
-            {
-                name:'带宽总量占比',
-                type:'bar',
-                xAxisIndex:1,
-                itemStyle: {normal: {color:'rgba(181,195,52,0.5)', label:{show:true}}},
-                data:[7.6, 22.3, 18.3, 12.5, 7.4]
-            },
-            {
-                name:'增值业务投资占比',
-                type:'bar',
-                xAxisIndex:1,
-                itemStyle: {normal: {color:'rgba(252,206,16,0.5)', label:{show:true}}},
-                data:[16.5, 9.3, 12.3, 5.5, 6.4]
+                stack: '总量',
+                itemStyle: {normal: {
+                    label : {show: true, position: 'left'}
+                }},
+                data:[-12.3, -13.2, -10.1, -13.4, -19.7, -23.2, -20.2]
             }
         ]
     };
