@@ -1,6 +1,7 @@
 # coding: utf-8
 from flask import render_template,  Blueprint
 from flask.ext.login import login_required
+from app import app
 
 adminView = Blueprint('admin', __name__)
 
@@ -8,7 +9,8 @@ adminView = Blueprint('admin', __name__)
 @login_required
 def index():
     return render_template('admin/pages/main.html',
-        content_title='IDC 概况')
+        content_title='IDC 概况',
+        web_3d_url=app.config['WEB_3D_URL'])
 
 @adminView.route('/customer/')
 @adminView.route('/customer/<customer_id>')

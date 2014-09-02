@@ -13,7 +13,7 @@ $(function() {
       'draw' : function () { 
         $(this.i).val(this.cv + '%')
       }
-    })
+    });
     
     // 带宽资源统计表
     var bar_chart = new Morris.Bar({
@@ -55,7 +55,7 @@ $(function() {
         xkey: 'y',
         ykeys: ['bandwitdh', 'cabinet', 'appreciation'],
         labels: ['带宽收入', '机柜收入','增值业务'],
-        lineColors: ['#a0d0e0', '#65bad7', '#16abdd', ],
+        lineColors: ['#a0d0e0', '#65bad7', '#16abdd'],
         hideHover: 'auto',
         yLabelFormat: function (x) { return x + " 万"}
 
@@ -69,7 +69,7 @@ $(function() {
         data: [
             {label: "机柜租用", value: 32.3},
             {label: "带宽租用", value: 75.2},
-            {label: "增值业务", value: 1.9},
+            {label: "增值业务", value: 1.9}
         ],
         hideHover: 'auto',
         formatter: function (x) { return x + " 万"}
@@ -88,6 +88,11 @@ $(function() {
         ],
         hideHover: 'auto',
         formatter: function (x) { return x + " 万"}
+    });
+
+    $('.box ul.nav a').on('shown.bs.tab', function(e) {
+        customer_chart.redraw();
+        sale_chart.redraw();
     });
 
 });
