@@ -1,0 +1,121 @@
+{% extends 'customer/layout.html' %}
+{% block css %}
+{{ super() }}
+<style>
+    .fa-check {
+        color: green;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+    <!-- row -->
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <!-- The time line -->
+            <ul class="timeline">
+                <!-- timeline time label -->
+                <li class="time-label">
+                    <span class="bg-red">
+                        9月 4日 2014
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="fa fa-home bg-green"></i>
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 5 分钟前</span>
+                        <h3 class="timeline-header"><a href="#">金石机房</a> 结束订单</h3>
+                        <div class="timeline-body">
+                            <p><i class="fa fa-check"></i>&nbsp;订单完成</p>
+                            <p>客户：蓝汛</p>
+                            <p>内容：已结束机房维护，订单完成</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <i class="fa fa-user bg-aqua"></i>
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 5 分钟前</span>
+                        <h3 class="timeline-header no-border"><a href="#">您</a> 更改了订单状态</h3>
+                        <div class="timeline-body">
+                            已结束本次维护
+                        </div>
+                    </div>
+                </li>
+
+                <li class="time-label">
+                    <span class="bg-purple">
+                        9月 3日 2014
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="fa fa-home bg-green"></i>
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 1 天前</span>
+                        <h3 class="timeline-header"><a href="#">金石机房</a> 更改了订单状态</h3>
+                        <div class="timeline-body">
+                            <p>客户：蓝汛</p>
+                            <p>内容：已进入机房维护</p>
+                        </div>
+                        <div class='timeline-footer'>
+                            <a class="btn btn-warning btn-flat btn-xs">查看详情</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="time-label">
+                    <span class="bg-purple">
+                        9月 2日 2014
+                    </span>
+                </li>
+
+
+                <li>
+                    <i class="fa fa-home bg-green"></i>
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 2 天前</span>
+                        <h3 class="timeline-header"><a href="#">金石机房</a> 审核了一份订单</h3>
+                        <div class="timeline-body">
+                            <p><i class="fa fa-check"></i>&nbsp;审核通过</p>
+                            <p>客户：蓝汛</p>
+                            <p>内容：维护金石机房 2-2-2 机柜上架设备</p>
+                        </div>
+                        <div class='timeline-footer'>
+                            <a class="btn btn-warning btn-flat btn-xs">查看详情</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <i class="fa fa-user bg-aqua"></i>
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> 2 天前</span>
+                        <h3 class="timeline-header"><a href="#">您</a> 提交了一份订单</h3>
+                        <div class="timeline-body">
+                            维护金石机房 2-2-2 机柜上架设备
+                        </div>
+                        <div class='timeline-footer'>
+                            <a class="btn btn-warning btn-flat btn-xs">查看详情</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <i class="fa fa-clock-o"></i>
+                </li>
+            </ul>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+{% endblock %}

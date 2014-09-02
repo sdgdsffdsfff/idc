@@ -1,0 +1,144 @@
+{% extends 'customer/layout.html' %}
+
+{% block css %}
+{{ super() }}
+<style type="text/css">
+    .star {
+        font-size: 16px;
+        color: #f39c12;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<!-- Main content -->
+<section class="content">
+
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+
+            <!-- 设备列表 -->
+            <div class="box box-solid">
+                <div class="box-header">
+                    <i class="fa fa-check-square-o"></i>
+                    <h3 class="box-title"><span class="zh">历史记录</span></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-bordered table-vcenter zh" >
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>订单名称</th>
+                                <th>订单类型</th>
+                                <th>发起时间</th>
+                                <th>当前处理人</th>
+                                <th>订单进度</th>
+                                <th>订单评价</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="{{ url_for('customer.order',order_name='1') }}" target="_blank">1</a></td>
+                                <td>维护金石机房设备</td>
+                                <td>设备维护</td>
+                                <td>2014-09-02</td>
+                                <td>无</td>
+                                <td>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" style="width: 100%;">
+                                            <span>完成</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><a href="{{ url_for('customer.order',order_name='2') }}" target="_blank">2</a></td>
+                                <td>购买安全测试服务</td>
+                                <td>套餐购买</td>
+                                <td>2014-09-01</td>
+                                <td>安全测试团队</td>
+                                <td>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-warning" style="width: 40%;">
+                                            <span>已经付款</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>暂无评价</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>购买DDOS增值业务</td>
+                                <td>套餐购买</td>
+                                <td>2014-08-01</td>
+                                <td>无</td>
+                                <td>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" style="width: 100%;">
+                                            <span>完成</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>维护金石机房设备</td>
+                                <td>设备维护</td>
+                                <td>2014-07-07</td>
+                                <td>无</td>
+                                <td>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" style="width: 100%;">
+                                            <span>完成</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="star">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div><!-- /.box-footer -->
+            </div><!-- / 设备列表 -->
+
+        </div><!-- /.col -->
+    </div>
+
+</section>
+<!-- /.content -->
+
+{% endblock %}

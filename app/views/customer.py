@@ -2,6 +2,7 @@
 
 from flask import render_template,  Blueprint
 from flask.ext.login import login_required
+from app import app
 
 customerView = Blueprint('customer', __name__)
 
@@ -11,8 +12,23 @@ customerView = Blueprint('customer', __name__)
 def index():
     return render_template('customer/pages/main.html',
         content_title='我的资产',
-        web_3d_url='http://3d.uunus.com/uinv_demo/index.html?user=admin&pwd=123&type=3d')
+        web_3d_url=app.config['WEB_3D_URL'])
 
+
+@customerView.route('/maintain')
+def maintain():
+    return render_template('customer/pages/maintain.html',
+        content_title='设备维护')
+
+@customerView.route('/order/<int:order_name>')
+@customerView.route('/order')
+def order(order_name=None):
+    if order_name == 1 or order_name == 2:
+        return render_template('customer/pages/order_detail_' + str(order_name) + '.html',
+        content_title='订单管理')
+
+    return render_template('customer/pages/order.html',
+        content_title='业务管理')
 
 @customerView.route('/safe')
 def safe():
@@ -33,10 +49,6 @@ def data():
         content_title='数据服务')
 
 
-@customerView.route('/maintain')
-def maintain():
-    return render_template('customer/pages/maintain.html',
-        content_title='设备维护')
 
 
 @customerView.route('/buy')
