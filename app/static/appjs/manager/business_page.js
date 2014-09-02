@@ -40,7 +40,7 @@ $(function() {
             ["5月", 116.3, 292.7, 59.9, 15.9, 91.9, 21.9],
             ["6月", 109.2, 306.2, 63.2, 17.1, 95.2, 25.2],
             ["7月", 123.2, 312.5, 68.4, 18.6, 87.0, 23.4],
-            ["8月", 123.5, 316.4, 72.4, 17.9, 96.4, 26.4]
+            ["8月", 123.5, 316.4, 72.4, 16.4, 96.4, 26.4]
         ]
     });
 
@@ -85,7 +85,7 @@ $(function() {
             data: [285.7, 293.2, 305.3, 275.6, 292.7, 306.2, 312.5, 316.4]
         }, {
             name: '压力测试服务',
-            data: [17.4, 16.5, 15.8, 16.5, 15.9, 17.1, 18.6, 17.9]
+            data: [17.4, 16.5, 15.8, 16.5, 15.9, 17.1, 18.6, 16.4]
         }, {
             name: '云计算服务',
             data: [83.4, 92.6, 85.3, 88.5, 91.9, 95.2, 87.0, 96.4]
@@ -113,16 +113,16 @@ $(function() {
             { "title": "业务名称", "class": "center" },
             { "title": "业务收入（万/月）", "class": "center" },
             { "title": "业务支出（万/月）", "class": "center"},
-            { "title": "利润率（%）", "class": "center"},
+            { "title": "业务收益（万/月）", "class": "center"},
             { "title": "客户评价", "class": "center", "orderable": false}
         ],
         "data": [
-            ["1", "机柜租用", "123.5", "83.4","52.3",returnStar(4)],
-            ["2", "带宽租用", "316.4","159.2","53.5",returnStar(4)],
-            ["3", "DDOS 流量清洗", "72.4","35.2","73.5",returnStar(5)],
-            ["4", "压力测试服务", "16.4","7.2","34.6",returnStar(3)],
-            ["5", "云计算服务", "96.4", "67.6","32.5",returnStar(2)],
-            ["6", "网站安全测试", "26.4", "12.5","56.3",returnStar(4)]
+            ["1", "机柜租用", "123.5", "83.4","40.1",returnStar(4)],
+            ["2", "带宽租用", "316.4","159.2","157.2",returnStar(4)],
+            ["3", "DDOS 流量清洗", "72.4","35.2","37.2",returnStar(5)],
+            ["4", "压力测试服务", "16.4","7.2","9.2",returnStar(3)],
+            ["5", "云计算服务", "95.6", "67.6","28",returnStar(2)],
+            ["6", "网站安全测试", "26.4", "12.5","13.9",returnStar(4)]
         ]
     });
 
@@ -134,49 +134,76 @@ $(function() {
             trigger: 'axis',
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter: function (param){
+                return param[0][1] + '<br/>'
+                       + param[0][0] + ' : ' + param[0][2] + '<br/>'
+                       + param[1][0] + ' : ' + (param[1][2] + param[0][2]);
             }
         },
         legend: {
-            data:['当月利润', '业务支出', '业务收入']
+            selectedMode:false,
+            data:['业务投资', '投资收益']
         },
         calculable : true,
         xAxis : [
             {
-                type : 'value'
+                type : 'category',
+                data : ['机柜租用','带宽租用','DDOS','压力测试','云计算','网站安全']
             }
         ],
         yAxis : [
             {
-                type : 'category',
-                axisTick : {show: false},
-                data : ['机柜租用','带宽租用','压力测试服务','云计算服务','网站安全测试','DDOS']
+                type : 'value',
+                boundaryGap: [0, 0.1]
             }
         ],
         series : [
             {
-                name:'当月利润',
+                name:'业务投资',
                 type:'bar',
-                itemStyle : { normal: {label : {show: true, position: 'inside'}}},
-                data:[40.1, 157.2, 37.2, 9.2, 28.8, 13.9]
+                stack: 'sum',
+                barCategoryGap: '50%',
+                itemStyle: {
+                    normal: {
+                        color: 'tomato',
+                        borderColor: 'tomato',
+                        borderWidth: 6,
+                        borderRadius:0,
+                        label : {
+                            show: true, position: 'insideTop'
+                        }
+                    }
+                },
+                data:[83.4, 159.2, 35.2, 7.2, 67.6, 12.5]
             },
             {
-                name:'业务收入',
+                name:'投资收益',
                 type:'bar',
-                stack: '总量',
-                barWidth : 5,
-                itemStyle: {normal: {
-                    label : {show: true}
-                }},
-                data:[123.5, 316.4, 72.4, 16.4, 96.4, 26.4]
-            },
-            {
-                name:'业务支出',
-                type:'bar',
-                stack: '总量',
-                itemStyle: {normal: {
-                    label : {show: true, position: 'left'}
-                }},
-                data:[-83.4, -159.2, -35.2, -7.2, -67.6, -12.5]
+                stack: 'sum',
+                itemStyle: {
+                    normal: {
+                        color: '#fff',
+                        borderColor: 'tomato',
+                        borderWidth: 6,
+                        borderRadius:0,
+                        label : {
+                            show: true,
+                            position: 'top',
+                            formatter: function (a, b, c) {
+                                for (var i = 0, l = investOption.xAxis[0].data.length; i < l; i++) {
+                                    if (investOption.xAxis[0].data[i] == b) {
+                                        return investOption.series[0].data[i] + c;
+                                    }
+                                }
+                            },
+                            textStyle: {
+                                color: 'tomato'
+                            }
+                        }
+                    }
+                },
+                data:[40.1, 157.2, 37.2, 9.2, 28, 13.9]
             }
         ]
     };

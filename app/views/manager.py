@@ -37,8 +37,14 @@ def customer():
     return render_template('manager/pages/customer.html',
             content_title='客户评估')
 
-@managerView.route('/analyze/')
+@managerView.route('/analyze-room/')
 @login_required
-def analyze():
-    return render_template('manager/pages/analyze.html',
-            content_title='投资分析')
+def analyze_room():
+    return render_template('manager/pages/analyze_room.html',
+            content_title='机房投资分析')
+
+@managerView.route('/analyze-business/')
+@login_required
+def analyze_business():
+    return render_template('manager/pages/analyze_business.html',
+            content_title='业务投资分析')

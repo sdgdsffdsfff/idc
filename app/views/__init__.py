@@ -46,8 +46,17 @@ def login():
 
 @app.route('/logout')
 def logout():
+    try:
+        user_role = g.user.role
+    except:
+        user_role = "customer"
+
     logout_user()
-    return redirect(url_for('index'))
+
+    if(user_role == "customer"):
+        return redirect(url_for('index'))
+    else:
+        return redirect(url_for('login'))
 
 
 @login_manager.user_loader
