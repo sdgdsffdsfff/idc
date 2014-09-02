@@ -1,102 +1,186 @@
-/*
- * Author: Abdullah A Almsaeed
- * Date: 4 Jan 2014
- * Description:
- *      This is a demo file used only for the main dashboard (index.html)
- **/
+function returnStar(value) {
+    var starStr = "";
+    for(var i=1; i<= value; i++) {
+        starStr +=  "<i class='fa fa-star star'></i>";
+    }
+    for(;i<=5;i++){
+        starStr +=  "<i class='fa fa-star-o star'></i>";
+    }
+
+    return starStr;
+}
 
 $(function() {
     "use strict";
 
-    // 收入报表
-    var area = new Morris.Area({
-        element: 'revenue-chart',
-        resize: true,
-        data: [
-            {y: '2012 Q1', bandwitdh: 26.66,  cabinet: 26.66, appreciation: 2.0},
-            {y: '2012 Q2', bandwitdh: 27.78,  cabinet: 22.94, appreciation: 3.56},
-            {y: '2012 Q3', bandwitdh: 49.12,  cabinet: 19.69, appreciation: 5.56},
-            {y: '2012 Q4', bandwitdh: 37.67,  cabinet: 35.97, appreciation: 8.9},
-            {y: '2013 Q1', bandwitdh: 68.10,  cabinet: 19.14, appreciation: 11.06},
-            {y: '2013 Q2', bandwitdh: 56.70,  cabinet: 42.93, appreciation: 13.08},
-            {y: '2013 Q3', bandwitdh: 48.20,  cabinet: 37.95, appreciation: 15.03},
-            {y: '2013 Q4', bandwitdh: 60.73,  cabinet: 39.67, appreciation: 19.20},
-            {y: '2014 Q1', bandwitdh: 76.87,  cabinet: 44.60, appreciation: 23.08},
-            {y: '2014 Q2', bandwitdh: 84.32,  cabinet: 37.13, appreciation: 26.12}
-        ], 
-        xkey: 'y',
-        ykeys: ['bandwitdh', 'cabinet', 'appreciation'],
-        labels: ['带宽收入', '机柜收入','增值业务'],
-        lineColors: ['#a0d0e0', '#65bad7', '#16abdd', ],
-        hideHover: 'auto',
-        yLabelFormat: function (x) { return x + " 万"}
+    // 业务收入统计
+    var $incomeTable = $("#income-table");
 
-    });
-
-    // 收入分布
-    var sale_chart = new Morris.Donut({
-        element: 'sale-chart',
-        resize: true,
-        colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
-        data: [
-            {label: "机柜租用", value: 32.3},
-            {label: "带宽租用", value: 75.2},
-            {label: "增值业务", value: 1.9},
+    $incomeTable.dataTable({
+        "info" : false,
+        "paging": true,
+        "filter": false,
+        "lengthChange": false,
+        "pageLength":8,
+        "destroy": true,
+        "columns": [
+            { "title": "月份", "class": "center" },
+            { "title": "机柜租用", "class": "center" },
+            { "title": "带宽租用", "class": "center" },
+            { "title": "DDOS业务", "class": "center"},
+            { "title": "压力测试业务", "class": "center"},
+            { "title": "云计算业务", "class": "center"},
+            { "title": "安全测试业务", "class": "center"}
         ],
-        hideHover: 'auto',
-        formatter: function (x) { return x + " 万"}
+        "data": [
+            ["1月", 103.2, 285.7, 21.4, 17.4, 83.4, 23.4],
+            ["2月", 106.3, 293.2, 34.2, 16.5, 92.6, 24.2],
+            ["3月", 113.5, 305.3, 45.7, 15.8, 85.3, 25.7],
+            ["4月", 125.1, 275.6, 58.5, 16.5, 88.5, 28.5],
+            ["5月", 116.3, 292.7, 59.9, 15.9, 91.9, 21.9],
+            ["6月", 109.2, 306.2, 63.2, 17.1, 95.2, 25.2],
+            ["7月", 123.2, 312.5, 68.4, 18.6, 87.0, 23.4],
+            ["8月", 123.5, 316.4, 72.4, 17.9, 96.4, 26.4]
+        ]
     });
 
-    // 客户分布
-    var customer_chart = new Morris.Donut({
-        element: 'customer-chart',
-        resize: true,
-        colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
-        data: [
-            {label: "互联网", value: 72.3},
-            {label: "政府", value: 5.2},
-            {label: "中小企业", value: 8.9},
-            {label: "金融", value: 12.6}
+    var $incomeChart = $('#income-chart-pane');
+
+    $incomeChart.highcharts({
+        title: {
+            text: '业务收入统计',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '2014财年',
+            x: -20
+        },
+        xAxis: {
+            categories: ['1月','2月','3月','4月','5月','6月','7月','8月']
+        },
+        yAxis: {
+            title: {
+                text: '收入（万）'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '（万）'
+        },
+        legend: {
+//            layout: 'vertical',
+            align: 'center',
+//            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '机柜租用',
+            data: [103.2, 106.3, 113.5, 125.1, 116.3, 109.2, 123.2, 123.5]
+        }, {
+            name: '带宽租用',
+            data: [285.7, 293.2, 305.3, 275.6, 292.7, 306.2, 312.5, 316.4]
+        }, {
+            name: '压力测试服务',
+            data: [17.4, 16.5, 15.8, 16.5, 15.9, 17.1, 18.6, 17.9]
+        }, {
+            name: '云计算服务',
+            data: [83.4, 92.6, 85.3, 88.5, 91.9, 95.2, 87.0, 96.4]
+        },{
+            name: '网站安全测试',
+            data: [23.4, 24.2, 25.7, 28.5, 21.9, 25.2, 23.4, 26.4]
+        },{
+            name: 'DDOS',
+            data: [21.4, 34.2, 45.7, 58.5, 59.9, 63.2, 68.4, 72.4]
+        }]
+    });
+
+    // 投资收益分析
+    var $investTable = $("#invest-table");
+
+    $investTable.dataTable({
+        "info" : false,
+        "paging": true,
+        "filter": false,
+        "lengthChange": false,
+        "pageLength":8,
+        "destroy": true,
+        "columns": [
+            { "title": "#", "class": "center" },
+            { "title": "业务名称", "class": "center" },
+            { "title": "业务收入（万/月）", "class": "center" },
+            { "title": "业务支出（万/月）", "class": "center"},
+            { "title": "利润率（%）", "class": "center"},
+            { "title": "客户评价", "class": "center", "orderable": false}
         ],
-        hideHover: 'auto',
-        formatter: function (x) { return x + " 万"}
+        "data": [
+            ["1", "机柜租用", "123.5", "83.4","52.3",returnStar(4)],
+            ["2", "带宽租用", "316.4","159.2","53.5",returnStar(4)],
+            ["3", "DDOS 流量清洗", "72.4","35.2","73.5",returnStar(5)],
+            ["4", "压力测试服务", "16.4","7.2","34.6",returnStar(3)],
+            ["5", "云计算服务", "96.4", "67.6","32.5",returnStar(2)],
+            ["6", "网站安全测试", "26.4", "12.5","56.3",returnStar(4)]
+        ]
     });
 
-    // 用电支出
-    var myvalues = [], myPoints = 24;
 
-    var random_range = [2,3,4,5,6];
+    var investChartDom = document.getElementById('invest-chart-pane');
+    var investChart = echarts.init(investChartDom);
+    var investOption = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            data:['当月利润', '业务支出', '业务收入']
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        yAxis : [
+            {
+                type : 'category',
+                axisTick : {show: false},
+                data : ['机柜租用','带宽租用','压力测试服务','云计算服务','网站安全测试','DDOS']
+            }
+        ],
+        series : [
+            {
+                name:'当月利润',
+                type:'bar',
+                itemStyle : { normal: {label : {show: true, position: 'inside'}}},
+                data:[40.1, 157.2, 37.2, 9.2, 28.8, 13.9]
+            },
+            {
+                name:'业务收入',
+                type:'bar',
+                stack: '总量',
+                barWidth : 5,
+                itemStyle: {normal: {
+                    label : {show: true}
+                }},
+                data:[123.5, 316.4, 72.4, 16.4, 96.4, 26.4]
+            },
+            {
+                name:'业务支出',
+                type:'bar',
+                stack: '总量',
+                itemStyle: {normal: {
+                    label : {show: true, position: 'left'}
+                }},
+                data:[-83.4, -159.2, -35.2, -7.2, -67.6, -12.5]
+            }
+        ]
+    };
 
-    function getRandomValue(range) {
-
-        myvalues = [];
-
-        range = range % random_range.length;
-
-        while (myvalues.length < myPoints) {
-            var temp = Math.random() * random_range[range];
-            myvalues.push(temp.toFixed(2));
-        }
-
-        return myvalues;
-    }
-
-    var res_value = [];
-    var sparkline_id;
-    
-    for (var i = 1; i <= 5; i++ ) {
-        sparkline_id = '#sparkline-' + i;
-
-        res_value = getRandomValue(i);
-
-        $(sparkline_id).sparkline(res_value, {
-            type: 'bar',
-            tooltipFormat: '{{offset}} 时: {{value}} 度',
-            barColor: '#00a65a',
-            negBarColor: "#f56954",
-            height: '30px'
-        });
-
-    }
+    investChart.setOption(investOption);
 
 });

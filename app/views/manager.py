@@ -73,7 +73,7 @@ def analyze():
 @login_required
 def business():
     return render_template('manager/pages/business.html',
-            content_title='运营分析')
+            content_title='业务评估')
 
 @managerView.route('/power/')
 @login_required
