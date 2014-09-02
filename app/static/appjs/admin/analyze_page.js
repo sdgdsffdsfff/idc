@@ -2,16 +2,6 @@ $(function() {
     
     "use strict";
 
-    // 端口表格
-    $('#port-table').dataTable({
-        "bPaginate": true,
-        "bLengthChange": false,
-        "bFilter": false,
-        "bSort": false,
-        "bInfo": true,
-        "bAutoWidth": true
-    });
-
     // 端口流量
     // 实时流量信息
     var myvalues = [], myPoints = 24;
@@ -29,10 +19,10 @@ $(function() {
             var prev = myvalues.length > 0 ? myvalues[myvalues.length - 1] : 50,
                     y = prev + Math.random() * 10 - 5;
 
-            if (y < 0) {
-                y = 0;
-            } else if (y > 100) {
-                y = 100;
+            if (y < 20) {
+                y = 20;
+            } else if (y > 60) {
+                y = 60;
             }
 
             y = Math.round(y);
@@ -74,6 +64,17 @@ $(function() {
             height: '35px'
         });
 
-    };
+    }
+
+    // 端口表格
+    $('#port-table').dataTable({
+        "bPaginate": true,
+        "bLengthChange": false,
+        "iDisplayLength": 3,
+        "bFilter": false,
+        "bSort": false,
+        "bInfo": false,
+        "bAutoWidth": true
+    });
 
 });

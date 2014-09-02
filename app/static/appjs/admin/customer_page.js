@@ -9,7 +9,7 @@ $(function() {
     "use strict";
 
     // 机柜分布
-    var cabinet = new Morris.Donut({
+    var cabinetChart = new Morris.Donut({
         element: 'cabinet-chart',
         resize: true,
         colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
@@ -24,7 +24,7 @@ $(function() {
     });
 
     // 带宽分布
-    var band = new Morris.Donut({
+    var bandChart = new Morris.Donut({
         element: 'band-chart',
         resize: true,
         colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
@@ -39,7 +39,7 @@ $(function() {
     });
 
     // IP分布
-    var ip = new Morris.Donut({
+    var ipChart = new Morris.Donut({
         element: 'ip-chart',
         resize: true,
         colors: ["#00c0ef", "#00a65a", "#f39c12", "#f56954"],
@@ -51,6 +51,12 @@ $(function() {
         ],
         hideHover: 'auto',
         formatter: function (x) { return x + " 个"}
+    });
+
+    $('.box ul.nav a').on('shown.bs.tab', function(e) {
+        cabinetChart.redraw();
+        bandChart.redraw();
+        ipChart.redraw();
     });
 
 });

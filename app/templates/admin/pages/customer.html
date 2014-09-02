@@ -13,6 +13,11 @@
         font-size: 16px;
         color: #f39c12;
     }
+
+    .main-chart {
+        position: relative;
+        height: 350px;
+    }
 </style>
 
 {% endblock %}
@@ -221,13 +226,13 @@
                     </ul>
                     <div class="tab-content no-padding">
                         <!-- 机柜 -->
-                        <div class="chart tab-pane active" id="cabinet-chart" style="position: relative; height: 300px;"></div>
+                        <div class="chart tab-pane active main-chart" id="cabinet-chart"></div>
 
                         <!-- 带宽 -->
-                        <div class="chart tab-pane" id="band-chart" style="position: relative; height: 300px;"></div>
+                        <div class="chart tab-pane main-chart" id="band-chart"></div>
 
                         <!-- IP地址 -->
-                        <div class="chart tab-pane" id="ip-chart" style="position: relative; height: 300px;"></div>
+                        <div class="chart tab-pane main-chart" id="ip-chart"></div>
                     </div>
                 </div><!-- /.nav-tabs-custom -->
 

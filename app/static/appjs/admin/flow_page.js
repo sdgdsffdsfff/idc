@@ -13,12 +13,12 @@ $(function() {
         while (data.length < totalPoints) {
 
             var prev = data.length > 0 ? data[data.length - 1] : 50,
-                    y = prev + Math.random() * 10 - 5;
+            y = prev + Math.random() * 10 - 5;
 
-            if (y < 0) {
-                y = 0;
-            } else if (y > 100) {
-                y = 100;
+            if (y < 40) {
+                y = 40;
+            } else if (y > 70) {
+                y = 70;
             }
 
             data.push(y);
@@ -57,7 +57,7 @@ $(function() {
         }
     });
 
-    var updateInterval = 500; //Fetch data ever x milliseconds
+    var updateInterval = 1500; //Fetch data ever x milliseconds
     var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
     function update() {
 
@@ -73,8 +73,10 @@ $(function() {
     if (realtime === "on") {
         update();
     }
+
     //REALTIME TOGGLE
-    $("#realtime .btn").click(function() {
+    var $realtime = $("#realtime");
+    $realtime.find('.btn').click(function() {
         if ($(this).data("toggle") === "on") {
             realtime = "on";
         }
@@ -88,9 +90,10 @@ $(function() {
     $('#port-table').dataTable({
         "bPaginate": true,
         "bLengthChange": false,
+        "iDisplayLength": 5,
         "bFilter": false,
-        "bSort": true,
-        "bInfo": true,
+        "bSort": false,
+        "bInfo": false,
         "bAutoWidth": true
     });
 
@@ -143,6 +146,6 @@ $(function() {
             height: '30px'
         });
 
-    };
+    }
 
 });

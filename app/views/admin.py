@@ -29,7 +29,8 @@ def customer(customer_id=None):
 @login_required
 def cabinet():
     return render_template('admin/pages/cabinet.html',
-            content_title='机房资产')
+            content_title='机房资产',
+            web_3d_url=app.config['WEB_3D_URL'])
 
 
 @adminView.route('/bandres/')

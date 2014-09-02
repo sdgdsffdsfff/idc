@@ -36,6 +36,11 @@ $(function() {
         formatter: function (x) { return x + "个"}
     });
 
+    $('.box ul.nav a').on('shown.bs.tab', function(e) {
+        band_chart.redraw();
+        ip_chart.redraw();
+    });
+
     // 带宽资源统计表
     var bar_chart = new Morris.Bar({
         element: 'bar-chart',
@@ -62,7 +67,7 @@ $(function() {
       'draw' : function () { 
         $(this.i).val(this.cv + '%')
       }
-    })
+    });
 
     // 峰值流量
     var myvalues = [], myPoints = 24;
@@ -97,7 +102,7 @@ $(function() {
             height: '30px'
         });
 
-    };
+    }
     
 
 });
