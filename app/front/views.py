@@ -1,5 +1,6 @@
 # coding: utf-8
 from flask import render_template,  Blueprint
+from app import app
 
 frontView = Blueprint('front', __name__, template_folder='./templates',
     static_folder='./static')
@@ -7,7 +8,7 @@ frontView = Blueprint('front', __name__, template_folder='./templates',
 @frontView.route('/')
 def index():
     return render_template('pages/main.html',
-    web_3d_url="http://3d.uunus.com/uinv_demo/index.html?user=admin&pwd=123&type=3d")
+    web_3d_url=app.config['WEB_3D_URL'])
 
 
 @frontView.route('/service')
@@ -20,9 +21,10 @@ def service():
 def room(room_name=None):
     if room_name is None:
         return render_template('pages/room.html',
-        web_3d_url="http://3d.uunus.com/uinv_demo/index.html?user=admin&pwd=123&type=3d")
+               web_3d_url=app.config['WEB_3D_URL'])
 
-    return render_template('pages/room_detail.html')
+    return render_template('pages/room_detail.html',
+           web_3d_url=app.config['WEB_3D_URL'])
 
 @frontView.route('/ddos')
 def ddos():
