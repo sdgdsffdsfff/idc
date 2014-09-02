@@ -1,0 +1,38 @@
+{% extends 'customer/layout.html' %}
+{% block css %}
+{{ super() }}
+<style>
+    .main-chart {
+        height: 530px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div id="chart1" class="main-chart"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div id="chart2" class="main-chart"></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block js %}
+{{ super() }}
+
+<!-- echarts js -->
+<script src="{{ url_for('static', filename='cdn/vendor/echarts/js/echarts-plain.js') }}" type="text/javascript"></script>
+
+<!-- index data -->
+<script src="{{ url_for('static', filename='appjs/customer/seo_page.js') }}" type="text/javascript"></script>
+
+
+{% endblock %}

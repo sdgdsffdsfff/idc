@@ -15,10 +15,10 @@ $(function() {
             var prev = data.length > 0 ? data[data.length - 1] : 50,
                     y = prev + Math.random() * 10 - 5;
 
-            if (y < 0) {
-                y = 0;
-            } else if (y > 100) {
-                y = 100;
+            if (y < 30) {
+                y = 30;
+            } else if (y > 60) {
+                y = 60;
             }
 
             data.push(y);
@@ -57,7 +57,7 @@ $(function() {
         }
     });
 
-    var updateInterval = 500; //Fetch data ever x milliseconds
+    var updateInterval = 1500; //Fetch data ever x milliseconds
     var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
     function update() {
 
@@ -74,7 +74,8 @@ $(function() {
         update();
     }
     //REALTIME TOGGLE
-    $("#realtime .btn").click(function() {
+    var $realtime = $("#realtime");
+    $realtime.find('.btn').click(function() {
         if ($(this).data("toggle") === "on") {
             realtime = "on";
         }
@@ -106,15 +107,6 @@ $(function() {
         yLabelFormat: function (x) { return x + " GB"}
     });
 
-    // 端口表格
-    $('#port-table').dataTable({
-        "bPaginate": true,
-        "bLengthChange": false,
-        "bFilter": false,
-        "bSort": true,
-        "bInfo": true,
-        "bAutoWidth": true
-    });
 
     // 端口流量
     // 实时流量信息
@@ -165,6 +157,18 @@ $(function() {
             height: '30px'
         });
 
-    };
+    }
+
+    // 端口表格
+    $('#port-table').dataTable({
+        "bPaginate": true,
+        "bLengthChange": false,
+        "iDisplayLength": 5,
+        "bFilter": false,
+        "bSort": false,
+        "bInfo": false,
+        "bAutoWidth": true
+    });
+
 
 });

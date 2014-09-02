@@ -43,17 +43,14 @@ def safe(safe_type=None):
 
 @customerView.route('/seo')
 def seo():
-    return render_template('customer/pages/iframe.html',
-        content_title='SEO服务',
-        web_url="http://cn.majesticseo.com/")
+    return render_template('customer/pages/seo.html',
+        content_title='SEO服务')
 
 
 @customerView.route('/data')
 def data():
     return render_template('customer/pages/data.html',
         content_title='数据服务')
-
-
 
 
 @customerView.route('/buy')
@@ -65,7 +62,8 @@ def buy():
 @customerView.route('/device')
 def device():
     return render_template('customer/pages/device.html',
-        content_title='机房资产')
+        content_title='机房资产',
+        web_3d_url = app.config['WEB_3D_URL'])
 
 
 @customerView.route('/flow')
