@@ -31,7 +31,12 @@ def order(order_name=None):
         content_title='业务管理')
 
 @customerView.route('/safe')
-def safe():
+@customerView.route('/safe/<int:safe_type>')
+def safe(safe_type=None):
+    if(safe_type):
+        return render_template('customer/pages/safe_detect.html',
+        content_title='安全检测')
+
     return render_template('customer/pages/safe.html',
         content_title='安全服务')
 

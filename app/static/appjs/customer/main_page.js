@@ -38,12 +38,12 @@ $(function() {
             {y: '2013 Q2', sla: 99.996},
             {y: '2013 Q3', sla: 99.998},
             {y: '2013 Q4', sla: 99.997},
-            {y: '2014 Q1', sla: 99.996},
+            {y: '2014 Q1', sla: 99.996}
         ], 
         xkey: 'y',
-        ykeys: ['sla',],
-        labels: ['SLA指标', ],
-        lineColors: ['#65bad7','#a0d0e0',  '#16abdd',],
+        ykeys: ['sla'],
+        labels: ['SLA指标'],
+        lineColors: ['#65bad7','#a0d0e0',  '#16abdd'],
         hideHover: 'auto',
         yLabelFormat: function (x) { return x + "%"}
 
