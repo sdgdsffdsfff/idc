@@ -113,7 +113,7 @@ function ajaxShowChart(response) {
 }
 
 // genearte date input table
-function showFlowChart($chartObj) {
+function createFlowChart($chartObj) {
     var devName = $chartObj.attr('data-devName');
     var portName = $chartObj.attr('data-portName');
     var monthValue = $chartObj.attr('data-monthValue');
@@ -137,10 +137,114 @@ function showFlowChart($chartObj) {
     ajaxGetData(portChartUrl, ajaxShowChart, ajaxFailedCallback);
 }
 
+function createIncomeChart() {
+    var incomeChartDom = document.getElementById('income-chart-pane');
+    var incomeChart = echarts.init(incomeChartDom);
+    var incomeOption = {
+         title :{
+            text : '每月收益差距',
+            subtext : '2014财年'
+        },
+
+        tooltip : {
+            trigger: 'axis',
+            formatter: function (v){
+                return v[0][1] + ' : '
+                       + (v[0][2] - v[1][2] < 0 ? '+' : '-')
+                       + v[3][2] + ' 万元<br/>'
+                       + v[0][0] + ' : ' + v[0][2] + ' 万元<br/>'
+                       + v[1][0] + ' : ' + v[1][2] + ' 万元<br/>'
+            }
+        },
+
+        legend: {
+            data:['计算费用', '实际费用'],
+            selectedMode:false
+        },
+
+        xAxis : [
+            {
+                type : 'category',
+                data : ['1月','2月','3月','4月','5月','6月','7月', '8月']
+            }
+        ],
+
+        yAxis : [
+            {
+                type : 'value',
+                min : 0,
+                max : 2
+            }
+        ],
+
+        series : [
+            {
+                name:'计算费用',
+                type:'line',
+                data: [1.3, 1.6, 1.2, 0.8, 1.1, 1.4, 0.9, 1.5]
+            },
+
+            {
+                name:'实际费用',
+                type:'line',
+                symbol:'none',
+                itemStyle:{
+                    normal:{
+                      lineStyle: {
+                        width:1,
+                        type:'dashed'
+                      }
+                    }
+                },
+                data:[1.1, 1.5, 0.2, 0, 0, 1.3, 0.7, 1.2]
+            },
+
+            {
+                name:'条状基数',
+                type:'bar',
+                stack: '1',
+                barWidth: 6,
+                itemStyle:{
+                    normal:{
+                        color:'rgba(0,0,0,0)'
+                    },
+                    emphasis:{
+                        color:'rgba(0,0,0,0)'
+                    }
+                },
+                data:[1.1, 1.5, 0.2, 0, 0, 1.3, 0.7, 1.2]
+            },
+
+            {
+                name:'条状变化',
+                type:'bar',
+                stack: '1',
+                data:[
+                  0.2, 0.1,
+                  {value : 1, itemStyle:{ normal:{color:'red'}}},
+                  {value : 0.8, itemStyle:{ normal:{color:'red'}}},
+                  {value : 1.1, itemStyle:{ normal:{color:'red'}}},
+                  0.1, 0.2, 0.3
+                ]
+            }
+        ]
+    };
+
+    incomeChart.setOption(incomeOption);
+
+}
+
 
 $(function() {
     "use strict";
 
-    var $chartObj = $('#flow-chart-pane');
-    showFlowChart($chartObj);
+    var $flowChart = $('#flow-chart-pane');
+    createFlowChart($flowChart);
+
+    var $pane = $('.box ul.nav a');
+
+    $pane.on('shown.bs.tab', function(e) {
+        createIncomeChart();
+    });
+
 });

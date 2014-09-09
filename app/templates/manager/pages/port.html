@@ -33,7 +33,7 @@
                             <span class="zh">历史收益</span></a>
                         </li>
                         <li class="active"><a href="#flow-chart-pane" data-toggle="tab">
-                            <span class="zh">月度流量</span></a>
+                            <span class="zh">当月流量</span></a>
                         </li>
                         <li class="pull-left header"><i class="fa fa-calculator"></i>
                             <span class="zh">端口核算</span>
@@ -43,6 +43,7 @@
                     <div class="tab-content no-padding">
                         <div class="tab-pane main-chart active" id="flow-chart-pane"
                              data-portName="{{ port_name }}" data-devName="{{ dev_name }}" data-monthValue = "{{ month_value }}"></div>
+
                         <div class="tab-pane main-chart" id="income-chart-pane"></div>
                     </div>
                 </div><!-- /.nav-tabs-custom -->
@@ -66,6 +67,9 @@
 <!-- highcharts js -->
 <script src="{{ url_for('static', filename='cdn/vendor/highcharts/js/highcharts.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='cdn/vendor/highcharts/js/highchartstheme.js') }}" type="text/javascript"></script>
+
+<!-- echarts js -->
+<script src="{{ url_for('static', filename='cdn/vendor/echarts/js/echarts-plain.js') }}" type="text/javascript"></script>
 
 <!-- page js -->
 <script src="{{ url_for('static', filename='appjs/manager/port_page.js') }}" type="text/javascript"></script>

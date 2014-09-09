@@ -8,9 +8,8 @@ function portStatus(value) {
 }
 
 function portDetail(port, device) {
-    var requestString = "?port=\"" + port + "\"&device=\"" + device + "\"" + "\"&month=\"201408\"";
-    return "<a href='/manager/port/" + requestString + "' " +
-        "target=\"_blank\">" + port + "</a>";
+    var requestString = "?port=\"" + port + "\"&device=\"" + device + "\"" + "\"&month=\"201409\"";
+    return "<a href='/manager/port/" + requestString + "'> " + port + "</a>";
 }
 
 function contact(value) {
