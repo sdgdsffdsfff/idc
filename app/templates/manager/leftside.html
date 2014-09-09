@@ -21,11 +21,22 @@
                     <i class="fa fa-dashboard"></i> <span class="zh">IDC 概况</span>
                 </a>
             </li>
-            <li>
-                <a href="{{ url_for('manager.room') }}">
-                    <i class="fa fa-user"></i> <span class="zh">机房评估</span>
+
+            <li class="treeview">
+
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span class="zh">机房评估</span>
+                    <i class="fa fa-angle-left pull-right"></i>
                 </a>
+
+                <ul class="treeview-menu">
+                    <li><a href="{{ url_for('manager.room') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">全省机房概况</span></a></li>
+                    <li><a href="{{ url_for('manager.analyze_business') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">地市规模</span></a></li>
+                </ul>
+
             </li>
+
             <li>
                 <a href="{{ url_for('manager.business') }}">
                     <i class="fa fa-user"></i> <span class="zh">业务评估</span>

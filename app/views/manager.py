@@ -18,10 +18,10 @@ def room(room_name=None):
     if room_name:
         return render_template('manager/pages/room_detail.html',
             room_name=room_name,
-            content_title='机房评估')
+            content_title=room_name)
 
     return render_template('manager/pages/room.html',
-            content_title='机房评估')
+            content_title='全省机房概况')
 
 
 @managerView.route('/business/')
