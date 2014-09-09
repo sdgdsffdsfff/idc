@@ -65,26 +65,23 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url_for('customer.maintain') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">设备维护</span></a></li>
-                    <li><a href="{{ url_for('customer.order') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">订单管理</span></a></li>
+                    <li><a href="{{ url_for('customer.billing') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">自助缴费</span></a></li>
+                    <li><a href="{{ url_for('customer.report') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">报表下载</span></a></li>
 
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-flag-o"></i>
                     <span class="zh">推荐业务</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url_for('customer.safe') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">安全服务</span></a></li>
-
                     <li><a href="{{ url_for('customer.seo') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">SEO服务</span></a></li>
-
                     <li><a href="{{ url_for('customer.data') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">数据服务</span></a></li>
-
                     <li><a href="{{ url_for('customer.buy') }}"><i class="fa fa-angle-double-right"></i> <span class="zh">企业套餐</span></a></li>
-
                 </ul>
             </li>
 
@@ -104,14 +101,8 @@
             </li>
 
             <li class="active">
-                <a href="{{ url_for('customer.billing') }}">
-                    <i class="fa fa-jpy"></i> <span class="zh">费用查询</span>
-                </a>
-            </li>
-
-            <li class="active">
-                <a href="{{ url_for('customer.report') }}">
-                    <i class="fa fa-download"></i> <span class="zh">月度报表</span>
+                <a href="{{ url_for('customer.order') }}">
+                    <i class="fa fa-coffee"></i> <span class="zh">我的业务</span>
                 </a>
             </li>
 
