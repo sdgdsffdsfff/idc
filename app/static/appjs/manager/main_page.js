@@ -59,10 +59,10 @@ $(function() {
         ]
     });
 
-    // 全省业务统计
-    var $serviceTable = $("#service-table");
+    // 全省收入统计
+    var $incomeTable = $("#income-table");
 
-    $serviceTable.dataTable({
+    $incomeTable.dataTable({
         "info" : false,
         "paging": true,
         "filter": false,
@@ -72,24 +72,24 @@ $(function() {
         "columns": [
             { "title": "#", "class": "center" },
             { "title": "业务名称", "class": "center" },
-            { "title": "业务收入（万/月）", "class": "center" },
-            { "title": "业务支出（万/月）", "class": "center"},
-            { "title": "投资收益（%）", "class": "center"}
+            { "title": "4月（万）", "class": "center" },
+            { "title": "5月（万）", "class": "center" },
+            { "title": "6月（万）", "class": "center" },
+            { "title": "7月（万）", "class": "center" },
+            { "title": "8月（万）", "class": "center" }
         ],
         "data": [
-            ["1", "机柜租用", "123.5", "83.4", "148.0" ],
-            ["2", "带宽租用", "316.4","159.2", "198.7"],
-            ["3", "DDOS 流量清洗", "72.4","95.2", "76.1"],
-            ["4", "压力测试服务", "16.4","18.2","90.1" ],
-            ["5", "云计算服务", "96.4", "187.6","51.3"],
-            ["6", "网站安全测试", "26.4", "58.5","45.1"]
+            ["1", "机柜租用",  125.1, 116.3, 109.2, 123.2, 123.5],
+            ["2", "带宽租用", 275.6, 292.7, 306.2, 312.5, 316.4],
+            ["3", "DDOS 流量清洗", 58.5, 59.9, 63.2, 68.4, 72.4],
+            ["4", "压力测试服务", 16.5, 15.9, 17.1, 18.6, 17.9],
+            ["5", "云计算服务", 88.5, 91.9, 95.2, 87.0, 96.4],
+            ["6", "网站安全测试", 28.5, 21.9, 25.2, 23.4, 26.4]
         ]
     });
 
     var $roomChart1 = $('#room-chart1');
     var $roomChart2 = $('#room-chart2');
-
-
 
     $roomChart1.highcharts({
         chart: {
@@ -98,7 +98,7 @@ $(function() {
             plotShadow: false
         },
         title: {
-            text: '全省机柜分布概况'
+            text: '全省机柜总量'
         },
         tooltip: {
             pointFormat: '机柜总量: <b>{point.y}</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -115,7 +115,7 @@ $(function() {
         },
         series: [{
             type: 'pie',
-            name: '机柜占有率',
+            name: '机柜总量',
             data: [
                 ['鹿泉', 1265],
                 ['二枢纽', 762],
@@ -125,9 +125,9 @@ $(function() {
                     sliced: true,
                     selected: true
                 },
-                ['保定', 1563],
-                ['唐山', 1245],
-                ['其他', 2726]
+                ['保定 A', 1563],
+                ['唐山 A', 1245],
+                ['其他机房', 2726]
             ]
         }]
     });
@@ -139,7 +139,52 @@ $(function() {
             plotShadow: false
         },
         title: {
-            text: '全省带宽分布概况'
+            text: '全省机柜租用量'
+        },
+        tooltip: {
+            pointFormat: '机柜租用量: <b>{point.y}</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '机柜租用量',
+            innerSize: '65%',
+            data: [
+                ['鹿泉', 563],
+                ['二枢纽', 435],
+                {
+                    name: '金石',
+                    y: 220,
+                    sliced: true,
+                    selected: true
+                },
+                ['保定 A', 940],
+                ['唐山 A', 876],
+                ['其他机房', 1573]
+            ]
+        }]
+    });
+
+    var $bandChart1 = $('#band-chart1');
+    var $bandChart2 = $('#band-chart2');
+
+    $bandChart1.highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '全省带宽总量'
         },
         tooltip: {
             pointFormat: '带宽总量: <b>{point.y} GB</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -156,7 +201,48 @@ $(function() {
         },
         series: [{
             type: 'pie',
-            name: '带宽占有率',
+            name: '带宽总量',
+            data: [
+                ['鹿泉', 120],
+                ['二枢纽', 60],
+                {
+                    name: '金石',
+                    y: 25,
+                    sliced: true,
+                    selected: true
+                },
+                ['保定', 140],
+                ['唐山', 210],
+                ['其他', 420]
+            ]
+        }]
+    });
+
+    $bandChart2.highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '全省带宽租用量'
+        },
+        tooltip: {
+            pointFormat: '带宽租用量: <b>{point.y} GB</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '带宽租用量',
             innerSize: '65%',
             data: [
                 ['鹿泉', 220],
@@ -174,17 +260,17 @@ $(function() {
         }]
     });
 
-    var $serviceChart1 = $('#service-chart1');
-    var $serviceChart2 = $('#service-chart2');
+    var $incomeChart1 = $('#income-chart1');
+    var $incomeChart2 = $('#income-chart2');
 
-    $serviceChart1.highcharts({
+    $incomeChart1.highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false
         },
         title: {
-            text: '业务收入占比'
+            text: '各项业务收入占比'
         },
         subtitle: {
             text: '2014年8月'
@@ -222,9 +308,9 @@ $(function() {
         }]
     });
 
-    $serviceChart2.highcharts({
+    $incomeChart2.highcharts({
         title: {
-            text: '业务收入统计'
+            text: '各项业务收入总计'
         },
         subtitle: {
             text: '2014财年'
