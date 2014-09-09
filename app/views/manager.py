@@ -28,7 +28,7 @@ def room(room_name=None):
 @login_required
 def flow():
     return render_template('manager/pages/flow.html',
-            content_title='流量审查')
+            content_title='流量核算')
 
 @managerView.route('/port/', methods=['GET'])
 @login_required
@@ -50,7 +50,7 @@ def port():
 @login_required
 def business():
     return render_template('manager/pages/business.html',
-            content_title='业务评估')
+            content_title='收入评估')
 
 
 @managerView.route('/customer/')

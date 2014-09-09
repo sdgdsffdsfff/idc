@@ -118,7 +118,7 @@ $(function() {
         ],
         "data": [
             ["1", "机柜租用", "123.5", "83.4","40.1",returnStar(4)],
-            ["2", "带宽租用", "316.4","159.2","157.2",returnStar(4)],
+            ["2", "带宽租用", "216.4","129.2","87.2",returnStar(4)],
             ["3", "DDOS 流量清洗", "72.4","35.2","37.2",returnStar(5)],
             ["4", "压力测试服务", "16.4","7.2","9.2",returnStar(3)],
             ["5", "云计算服务", "95.6", "67.6","28",returnStar(2)],
@@ -134,76 +134,49 @@ $(function() {
             trigger: 'axis',
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            },
-            formatter: function (param){
-                return param[0][1] + '<br/>'
-                       + param[0][0] + ' : ' + param[0][2] + '<br/>'
-                       + param[1][0] + ' : ' + (param[1][2] + param[0][2]);
             }
         },
         legend: {
-            selectedMode:false,
-            data:['业务投资', '投资收益']
+            data:['当月利润', '业务支出', '业务收入']
         },
         calculable : true,
         xAxis : [
             {
-                type : 'category',
-                data : ['机柜租用','带宽租用','DDOS','压力测试','云计算','网站安全']
+                type : 'value'
             }
         ],
         yAxis : [
             {
-                type : 'value',
-                boundaryGap: [0, 0.1]
+                type : 'category',
+                axisTick : {show: false},
+                data : ['机柜租用','带宽租用','压力测试服务','云计算服务','网站安全测试','DDOS']
             }
         ],
         series : [
             {
-                name:'业务投资',
+                name:'当月利润',
                 type:'bar',
-                stack: 'sum',
-                barCategoryGap: '50%',
-                itemStyle: {
-                    normal: {
-                        color: 'tomato',
-                        borderColor: 'tomato',
-                        borderWidth: 6,
-                        borderRadius:0,
-                        label : {
-                            show: true, position: 'insideTop'
-                        }
-                    }
-                },
-                data:[83.4, 159.2, 35.2, 7.2, 67.6, 12.5]
+                itemStyle : { normal: {label : {show: true, position: 'inside'}}},
+                data:[40.1, 87.2, 37.2, 9.2, 28.8, 13.9]
             },
             {
-                name:'投资收益',
+                name:'业务收入',
                 type:'bar',
-                stack: 'sum',
-                itemStyle: {
-                    normal: {
-                        color: '#fff',
-                        borderColor: 'tomato',
-                        borderWidth: 6,
-                        borderRadius:0,
-                        label : {
-                            show: true,
-                            position: 'top',
-                            formatter: function (a, b, c) {
-                                for (var i = 0, l = investOption.xAxis[0].data.length; i < l; i++) {
-                                    if (investOption.xAxis[0].data[i] == b) {
-                                        return investOption.series[0].data[i] + c;
-                                    }
-                                }
-                            },
-                            textStyle: {
-                                color: 'tomato'
-                            }
-                        }
-                    }
-                },
-                data:[40.1, 157.2, 37.2, 9.2, 28, 13.9]
+                stack: '总量',
+                barWidth : 5,
+                itemStyle: {normal: {
+                    label : {show: true}
+                }},
+                data:[123.5, 216.4, 72.4, 16.4, 96.4, 26.4]
+            },
+            {
+                name:'业务支出',
+                type:'bar',
+                stack: '总量',
+                itemStyle: {normal: {
+                    label : {show: true, position: 'left'}
+                }},
+                data:[-83.4, -129.2, -35.2, -7.2, -67.6, -12.5]
             }
         ]
     };
