@@ -1,6 +1,7 @@
 # coding: utf-8
-from flask import render_template,  Blueprint
+from flask import render_template,  Blueprint, request, abort
 from flask.ext.login import login_required
+from app import app
 
 managerView = Blueprint('manager', __name__)
 
@@ -17,17 +18,33 @@ def index():
 def room(room_name=None):
     if room_name == 1:
         return render_template('manager/pages/room_detail.html',
-            content_title='石家庄金石机房')
+            content_title='石家庄金石机房',
+            web_3d_url = app.config['WEB_3D_URL'])
 
     return render_template('manager/pages/room.html',
             content_title='机房资源统计')
 
-@managerView.route('/port_account/')
+@managerView.route('/flow/')
 @login_required
-def port_account():
-    return render_template('manager/pages/port_account.html',
-            content_title='带宽核算')
+def flow():
+    return render_template('manager/pages/flow.html',
+            content_title='流量审查')
 
+@managerView.route('/port/', methods=['GET'])
+@login_required
+def port():
+    try:
+        port_name = request.args.get('port').strip("\"")
+        dev_name = request.args.get('device').strip("\"")
+        month_value = request.args.get('month').strip("\"")
+    except:
+        return abort(404)
+
+    return render_template('manager/pages/port.html',
+            port_name = port_name,
+            dev_name = dev_name,
+            month_value = month_value,
+            content_title='端口详情')
 
 @managerView.route('/business/')
 @login_required
