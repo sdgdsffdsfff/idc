@@ -12,16 +12,21 @@ def index():
 
 
 @managerView.route('/room/')
-@managerView.route('/room/<room_name>')
+@managerView.route('/room/<int:room_name>')
 @login_required
 def room(room_name=None):
-    if room_name:
+    if room_name == 1:
         return render_template('manager/pages/room_detail.html',
-            room_name=room_name,
-            content_title=room_name)
+            content_title='石家庄金石机房')
 
     return render_template('manager/pages/room.html',
-            content_title='全省机房概况')
+            content_title='机房资源统计')
+
+@managerView.route('/port_account/')
+@login_required
+def port_account():
+    return render_template('manager/pages/port_account.html',
+            content_title='带宽核算')
 
 
 @managerView.route('/business/')
