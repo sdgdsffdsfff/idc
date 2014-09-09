@@ -32,9 +32,9 @@ $(function() {
             { "title": "增值业务", "class": "center", "orderable": false }
         ],
         "data": [
-            ["1", "金石", "石家庄", "410", "40G",returnStar(5)],
-            ["2", "鹿泉","石家庄", "1265", "220G", returnStar(4)],
-            ["3", "二枢纽","石家庄", "762", "120G", returnStar(3)],
+            ["1", "金石", "石家庄", "410", "40G",returnStar(4)],
+            ["2", "鹿泉","石家庄", "1265", "220G", returnStar(3)],
+            ["3", "二枢纽","石家庄", "762", "120G", returnStar(4)],
             ["4", "A机房","保定", "163", "40G", returnStar(2)],
             ["5", "B机房","保定", "256", "80G", returnStar(3)],
             ["6", "C机房","保定", "855", "60G", returnStar(3)],
@@ -98,10 +98,10 @@ $(function() {
             plotShadow: false
         },
         title: {
-            text: '全省机柜总量分布'
+            text: '全省机柜分布概况'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '机柜总量: <b>{point.y}</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
             pie: {
@@ -139,10 +139,10 @@ $(function() {
             plotShadow: false
         },
         title: {
-            text: '全省带宽总量分布'
+            text: '全省带宽分布概况'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '带宽总量: <b>{point.y} GB</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
             pie: {
@@ -156,7 +156,7 @@ $(function() {
         },
         series: [{
             type: 'pie',
-            name: '机柜占有率',
+            name: '带宽占有率',
             innerSize: '65%',
             data: [
                 ['鹿泉', 220],
@@ -184,10 +184,13 @@ $(function() {
             plotShadow: false
         },
         title: {
-            text: '业务收入分布'
+            text: '业务收入占比'
+        },
+        subtitle: {
+            text: '2014年8月'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '收入总计: <b>{point.y} 万元</b><br/>{series.name}: <b>{point.percentage:.1f}%</b>'
         },
         plotOptions: {
             pie: {
@@ -201,7 +204,7 @@ $(function() {
         },
         series: [{
             type: 'pie',
-            name: '机柜占有率',
+            name: '收入占比',
             innerSize: '45%',
             data: [
                 ['压力测试', 16.4],
@@ -221,12 +224,10 @@ $(function() {
 
     $serviceChart2.highcharts({
         title: {
-            text: '业务收入统计',
-            x: -20 //center
+            text: '业务收入统计'
         },
         subtitle: {
-            text: '2014财年',
-            x: -20
+            text: '2014财年'
         },
         xAxis: {
             categories: ['1月','2月','3月','4月','5月','6月','7月','8月']

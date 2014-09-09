@@ -8,7 +8,7 @@ managerView = Blueprint('manager', __name__)
 @login_required
 def index():
     return render_template('manager/pages/main.html',
-        content_title='IDC 概况')
+        content_title='全省 IDC 概况')
 
 
 @managerView.route('/room/')
