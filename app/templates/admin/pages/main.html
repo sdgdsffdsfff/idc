@@ -2,7 +2,7 @@
 
 {% block css %}
 {{ super() }}
-<link href="{{ url_for('static', filename='web/css/morris/morris.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ url_for('static', filename='vendor/morris/morris.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block content %}
@@ -145,7 +145,7 @@
 
                 <div class="box-body">
                     <a href="{{ web_3d_url }}" target="_blank">
-                        <img src="{{ url_for('static', filename='cdn/pic/3d1.png') }}" class="img-responsive" alt="3d">
+                        <img src="{{ url_for('static', filename='cdn/images/3d1.png') }}" class="img-responsive" alt="3d">
                     </a>
                 </div><!-- /.box-body -->
             </div><!-- / 3D 机房资源管理 -->
@@ -253,11 +253,11 @@
 {% block js %}
 {{ super() }}
 <!-- Raphael.js charts -->
-<script src="{{ url_for('static', filename='cdn/js/raphael-min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/raphael/raphael-min.js') }}"></script>
 <!-- Morris.js charts -->
-<script src="{{ url_for('static', filename='cdn/js/morris.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/morris/morris.min.js') }}" type="text/javascript"></script>
 <!-- jQuery Knob Chart -->
-<script src="{{ url_for('static', filename='web/js/plugins/jqueryKnob/jquery.knob.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/adminlte/js/plugins/jqueryKnob/jquery.knob.js') }}" type="text/javascript"></script>
 <!-- page js -->
-<script src="{{ url_for('static', filename='appjs/admin/main_page.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='custom/appjs/admin/main_page.js') }}" type="text/javascript"></script>
 {% endblock %}

@@ -1,5 +1,10 @@
 {% extends 'admin/layout.html' %}
 
+{% block css %}
+{{ super() }}
+<link href="{{ url_for('static', filename='vendor/morris/morris.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
 {% block content %}
 <!-- Main content -->
 <section class="content">
@@ -216,14 +221,14 @@
 {% block js %}
 {{ super() }}
 <!-- Raphael.js charts -->
-<script src="{{ url_for('static', filename='cdn/js/raphael-min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/raphael/raphael-min.js') }}"></script>
 <!-- Morris.js charts -->
-<script src="{{ url_for('static', filename='cdn/js/morris.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/morris/morris.min.js') }}" type="text/javascript"></script>
 <!-- jQuery Knob Chart -->
-<script src="{{ url_for('static', filename='web/js/plugins/jqueryKnob/jquery.knob.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/adminlte/js/plugins/jqueryKnob/jquery.knob.js') }}" type="text/javascript"></script>
 <!-- Sparkline -->
-<script src="{{ url_for('static', filename='web/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/adminlte/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 <!-- page js -->
-<script src="{{ url_for('static', filename='appjs/admin/bandres_page.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='custom/appjs/admin/bandres_page.js') }}" type="text/javascript"></script>
 
 {% endblock %}

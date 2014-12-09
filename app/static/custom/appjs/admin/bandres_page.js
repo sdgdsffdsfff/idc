@@ -46,17 +46,17 @@ $(function() {
         element: 'bar-chart',
         resize: true,
         data: [
-            {y: '10月', a: 1.3, b: 28},
-            {y: '11月', a: 1.5, b: 24},
-            {y: '12月', a: 1.0, b: 20},
-            {y: '01月', a: 1.2, b: 23},
-            {y: '02月', a: 1.6, b: 25},
-            {y: '03月', a: 1.1, b: 21},
-            {y: '04月', a: 1.7, b: 26}
+            {month: '10月', inbound: 1.3, outbound: 28},
+            {month: '11月', inbound: 1.5, outbound: 24},
+            {month: '12月', inbound: 1.0, outbound: 20},
+            {month: '01月', inbound: 1.2, outbound: 23},
+            {month: '02月', inbound: 1.6, outbound: 25},
+            {month: '03月', inbound: 1.1, outbound: 21},
+            {month: '04月', inbound: 1.7, outbound: 26}
         ],
         barColors: ['#00a65a', '#f56954'],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
+        xkey: 'month',
+        ykeys: ['inbound', 'outbound'],
         labels: ['下行', '上行'],
         hideHover: 'auto',
         yLabelFormat: function (x) { return x + " GB"}

@@ -57,7 +57,7 @@ $(function() {
         }
     });
 
-    var updateInterval = 1500; //Fetch data ever x milliseconds
+    var updateInterval = 500; //Fetch data ever x milliseconds
     var realtime = "on"; //If == to on then fetch data every x seconds. else stop fetching
     function update() {
 

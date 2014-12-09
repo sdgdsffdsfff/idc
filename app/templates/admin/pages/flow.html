@@ -3,7 +3,7 @@
 {% block css %}
 {{ super() }}
 <!-- DATA TABLES -->
-<link href="{{ url_for('static', filename='web/css/datatables/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ url_for('static', filename='vendor/datatables/css/dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block content %}
@@ -202,16 +202,16 @@
 {{ super() }}
 
 <!-- flot js -->
-<script src="{{ url_for('static', filename='web/js/plugins/flot/jquery.flot.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/adminlte/js/plugins/flot/jquery.flot.min.js') }}" type="text/javascript"></script>
 
 <!-- data table js -->
-<script src="{{ url_for('static', filename='web/js/plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='web/js/plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/datatables/js/jquery.dataTables.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/datatables/js/dataTables.bootstrap.js') }}" type="text/javascript"></script>
 
 <!-- Sparkline -->
-<script src="{{ url_for('static', filename='web/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/adminlte/js/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
 
 <!-- page js -->
-<script src="{{ url_for('static', filename='appjs/admin/flow_page.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='custom/appjs/admin/flow_page.js') }}" type="text/javascript"></script>
 
 {% endblock %}
