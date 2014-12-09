@@ -2,7 +2,7 @@
 
 {% block css %}
 {{ super() }}
-<link href="{{ url_for('static', filename='cdn/vendor/jquery-notify-bar/css/jquery.notifybar.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ url_for('static', filename='vendor/jquery-notify-bar/jquery.notifybar.css') }}" rel="stylesheet" type="text/css" />
 <style>
     .tab-pane {
         position: relative;
@@ -62,16 +62,16 @@
 {% block js %}
 {{ super() }}
 <!-- jquery notfiy bar -->
-<script src="{{ url_for('static', filename='cdn/vendor/jquery-notify-bar/js/jquery.notifyBar.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/jquery-notify-bar/jquery.notifyBar.js') }}" type="text/javascript"></script>
 
 <!-- highcharts js -->
-<script src="{{ url_for('static', filename='cdn/vendor/highcharts/js/highcharts.js') }}" type="text/javascript"></script>
-<script src="{{ url_for('static', filename='cdn/vendor/highcharts/js/highchartstheme.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/highcharts/highcharts.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/highcharts/highcharts-theme.js') }}" type="text/javascript"></script>
 
 <!-- echarts js -->
-<script src="{{ url_for('static', filename='cdn/vendor/echarts/js/echarts-plain.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='vendor/echarts/echarts-all.js') }}" type="text/javascript"></script>
 
 <!-- page js -->
-<script src="{{ url_for('static', filename='appjs/manager/port_page.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='custom/appjs/manager/port_page.js') }}" type="text/javascript"></script>
 
 {% endblock %}
